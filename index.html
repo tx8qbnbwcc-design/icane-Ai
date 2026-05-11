@@ -1,567 +1,194 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ICANE AI</title>
+<!-- PREMIUM SECTION -->
+
+<div class="prompt-card">
+
+<h2>PREMIUM PROMPTS 🔒</h2>
+
+<div class="prompt-text">
+Unlock exclusive cinematic AI prompts,
+luxury fashion concepts,
+viral TikTok prompt packs,
+ultra realistic cyberpunk edits,
+anime aesthetic collections,
+and creator-only drops.
+</div>
+
+<button>
+COMING SOON
+</button>
+
+</div>
+
+<!-- RANDOM PROMPT BUTTON -->
+
+<button onclick="randomPrompt()">
+Random Prompt 🎲
+</button>
+
+<!-- PROMPT COUNTER -->
+
+<div class="prompt-card">
+
+<h2>Total Prompt Collection</h2>
+
+<div class="prompt-text">
+Total Prompts:
+<span id="promptCount"></span>
+</div>
+
+</div>
+
+<!-- FOOTER -->
+
+<div class="prompt-card">
+
+<h2>ICANE AI COMMUNITY</h2>
+
+<div class="prompt-text">
+Create viral AI visuals.
+Copy elite prompts.
+Build futuristic content.
+
+TikTok • Instagram • Gemini • ChatGPT
+</div>
+
+</div>
+
+<!-- EXTRA GLOW -->
+
+<div class="extra-glow"></div>
 
 <style>
 
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-}
+/* EXTRA GLOW */
 
-html{
-scroll-behavior:smooth;
-}
-
-body{
-font-family:Arial,sans-serif;
-background:linear-gradient(to bottom,#000,#041018,#07131f);
-background-attachment:fixed;
-color:white;
-padding:25px;
-overflow-x:hidden;
-}
-
-/* BACKGROUND */
-
-body::before{
-content:'';
+.extra-glow{
 position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:
-radial-gradient(circle at top left,#00ffcc22,transparent 30%),
-radial-gradient(circle at bottom right,#00ffee11,transparent 30%);
+right:-100px;
+bottom:-100px;
+width:350px;
+height:350px;
+background:#00ffee22;
+filter:blur(120px);
+border-radius:50%;
 z-index:-3;
-animation:bgmove 8s infinite alternate;
+animation:extraGlow 10s infinite alternate;
 }
 
-@keyframes bgmove{
+@keyframes extraGlow{
 from{
-transform:translateY(0px);
+transform:translate(0px,0px);
 }
 to{
-transform:translateY(-20px);
+transform:translate(-100px,-80px);
 }
 }
 
-/* TITLE */
+/* RANDOM BUTTON */
 
-h1{
-text-align:center;
-font-size:64px;
-color:#00ffcc;
-letter-spacing:6px;
-margin-bottom:50px;
-font-weight:900;
-text-shadow:
-0 0 10px #00ffcc,
-0 0 30px #00ffcc,
-0 0 60px #00ffee;
-animation:glow 2s infinite alternate,
-float 4s ease-in-out infinite;
-}
-
-@keyframes glow{
-from{
-text-shadow:0 0 10px #00ffcc;
-}
-to{
-text-shadow:
-0 0 25px #00ffee,
-0 0 60px #00ffee;
-}
-}
-
-@keyframes float{
-0%{
-transform:translateY(0px);
-}
-50%{
-transform:translateY(-5px);
-}
-100%{
-transform:translateY(0px);
-}
-}
-
-/* NAVBAR */
-
-.navbar{
-position:sticky;
-top:0;
-z-index:999;
-background:rgba(0,0,0,0.6);
-backdrop-filter:blur(12px);
-padding:15px 20px;
+button.random-btn{
 margin-bottom:30px;
-border-radius:20px;
-display:flex;
-justify-content:space-between;
-align-items:center;
-border:1px solid #00ffcc33;
 }
 
-.logo{
-font-size:22px;
-font-weight:900;
+/* PREMIUM CARD */
+
+.premium{
+border:1px solid gold;
+box-shadow:0 0 30px rgba(255,215,0,0.2);
+}
+
+.premium h2{
+color:gold;
+text-shadow:0 0 15px gold;
+}
+
+/* COUNTER */
+
+#promptCount{
 color:#00ffcc;
-letter-spacing:3px;
-text-shadow:0 0 15px #00ffcc;
+font-weight:bold;
+font-size:24px;
 }
 
-.nav-links{
-display:flex;
-gap:15px;
-}
+/* FOOTER */
 
-.nav-links a{
-color:white;
-text-decoration:none;
+.footer{
+text-align:center;
+padding:30px;
+color:#888;
 font-size:14px;
-transition:0.3s;
-}
-
-.nav-links a:hover{
-color:#00ffcc;
-text-shadow:0 0 10px #00ffcc;
-}
-
-/* SEARCH */
-
-.search-box{
-width:100%;
-margin-bottom:35px;
-}
-
-.search-box input{
-width:100%;
-padding:16px;
-border:none;
-border-radius:16px;
-background:#0d1117;
-color:white;
-font-size:16px;
-outline:none;
-border:1px solid #00ffcc33;
-box-shadow:0 0 20px #00ffcc11;
-}
-
-.search-box input:focus{
-border:1px solid #00ffcc;
-box-shadow:0 0 25px #00ffcc55;
-}
-
-/* CARD */
-
-.prompt-card{
-position:relative;
-overflow:hidden;
-background:rgba(10,10,10,0.7);
-backdrop-filter:blur(10px);
-border:1px solid #222;
-border-radius:24px;
-padding:28px;
-margin-bottom:35px;
-transition:0.4s;
-box-shadow:0 0 25px rgba(0,255,200,0.08);
-}
-
-.prompt-card:hover{
-transform:translateY(-10px) scale(1.02);
-border:1px solid #00ffcc;
-box-shadow:0 0 35px #00ffcc66;
-}
-
-.prompt-card::before{
-content:'';
-position:absolute;
-top:-100%;
-left:-100%;
-width:200%;
-height:200%;
-background:linear-gradient(
-45deg,
-transparent,
-#00ffcc22,
-transparent
-);
-transform:rotate(45deg);
-animation:shine 6s linear infinite;
-}
-
-@keyframes shine{
-0%{
-transform:translateX(-100%) translateY(-100%) rotate(45deg);
-}
-100%{
-transform:translateX(100%) translateY(100%) rotate(45deg);
-}
-}
-
-.prompt-card h2{
-color:#00ffcc;
-font-size:34px;
-margin-bottom:20px;
-text-shadow:0 0 10px #00ffcc55;
-}
-
-.prompt-text{
-white-space:pre-line;
-line-height:1.9;
-font-size:17px;
-color:#ddd;
-}
-
-/* BUTTON */
-
-button{
-margin-top:25px;
-padding:14px 24px;
-width:100%;
-background:#00ffcc;
-color:black;
-border:none;
-border-radius:16px;
-font-size:18px;
-font-weight:bold;
-cursor:pointer;
-transition:0.3s;
-box-shadow:0 0 20px #00ffcc55;
-}
-
-button:hover{
-transform:scale(1.05);
-background:white;
-box-shadow:0 0 35px white;
-}
-
-/* TOAST */
-
-#toast{
-position:fixed;
-bottom:30px;
-right:30px;
-background:#00ffcc;
-color:black;
-padding:14px 22px;
-border-radius:14px;
-font-weight:bold;
-opacity:0;
-pointer-events:none;
-transition:0.4s;
-box-shadow:0 0 20px #00ffcc;
-z-index:99999;
-}
-
-#toast.show{
-opacity:1;
-transform:translateY(-10px);
-}
-
-/* PARTICLES */
-
-#particles{
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-overflow:hidden;
-z-index:-2;
-}
-
-.particle{
-position:absolute;
-width:4px;
-height:4px;
-background:#00ffcc;
-border-radius:50%;
-opacity:0.7;
-animation:floatParticle linear infinite;
-box-shadow:0 0 10px #00ffcc;
-}
-
-@keyframes floatParticle{
-from{
-transform:translateY(100vh) scale(0);
-opacity:0;
-}
-50%{
-opacity:1;
-}
-to{
-transform:translateY(-10vh) scale(1);
-opacity:0;
-}
-}
-
-/* CURSOR GLOW */
-
-.cursor-glow{
-position:fixed;
-width:300px;
-height:300px;
-border-radius:50%;
-background:#00ffcc22;
-pointer-events:none;
-filter:blur(80px);
-transform:translate(-50%,-50%);
-z-index:-1;
-}
-
-/* LOADING BAR */
-
-.loading-bar{
-position:fixed;
-top:0;
-left:0;
-height:3px;
-background:#00ffcc;
-box-shadow:0 0 20px #00ffcc;
-animation:loading 3s infinite;
-z-index:99999;
-}
-
-@keyframes loading{
-0%{
-width:0%;
-}
-50%{
-width:70%;
-}
-100%{
-width:100%;
-}
-}
-
-/* MOBILE */
-
-@media(max-width:768px){
-
-body{
-padding:18px;
-}
-
-h1{
-font-size:44px;
-}
-
-.prompt-card h2{
-font-size:26px;
-}
-
-.prompt-text{
-font-size:15px;
-}
-
+line-height:1.8;
 }
 
 </style>
-</head>
-
-<body>
-
-<div class="loading-bar"></div>
-
-<div id="particles"></div>
-
-<div class="cursor-glow"></div>
-
-<div class="navbar">
-
-<div class="logo">
-ICANE AI
-</div>
-
-<div class="nav-links">
-<a href="#">Home</a>
-<a href="#">Prompts</a>
-<a href="#">Gallery</a>
-</div>
-
-</div>
-
-<h1>ICANE AI</h1>
-
-<div class="search-box">
-<input type="text" placeholder="Search AI prompts...">
-</div>
-
-<!-- PROMPT 1 -->
-
-<div class="prompt-card">
-
-<h2>Anime Chibi Prompt</h2>
-
-<div class="prompt-text" id="prompt1">
-Use a real face as reference photo while keeping 100% of the original facial identity and hairstyle.
-
-Create a dreamy anime-inspired aesthetic portrait with soft cinematic lighting and pastel sunset sky background.
-</div>
-
-<button onclick="copyPrompt('prompt1')">
-Copy Prompt
-</button>
-
-</div>
-
-<!-- PROMPT 2 -->
-
-<div class="prompt-card">
-
-<h2>Tokyo Racing Prompt</h2>
-
-<div class="prompt-text" id="prompt2">
-Photorealistic anime-style young man standing beside a red sports car at night.
-
-Neon blue lighting,
-Japanese street racing atmosphere,
-wet Tokyo street,
-cyberpunk vibe,
-ultra realistic,
-8k quality.
-</div>
-
-<button onclick="copyPrompt('prompt2')">
-Copy Prompt
-</button>
-
-</div>
-
-<!-- PROMPT 3 -->
-
-<div class="prompt-card">
-
-<h2>Money Gun Prompt</h2>
-
-<div class="prompt-text" id="prompt3">
-Create a realistic HD photo of an urban-looking man lying casually on a table full of dollar bills while holding a money gun.
-</div>
-
-<button onclick="copyPrompt('prompt3')">
-Copy Prompt
-</button>
-
-</div>
-
-<!-- TOAST -->
-
-<div id="toast">
-Prompt Copied ✓
-</div>
-
-<!-- MUSIC -->
-
-<audio id="bgMusic" autoplay loop>
-<source src="music.mp3" type="audio/mpeg">
-</audio>
 
 <script>
 
-/* COPY */
+/* RANDOM PROMPT */
 
-function copyPrompt(id){
+function randomPrompt(){
 
-const text =
-document.getElementById(id).innerText;
+const cards =
+document.querySelectorAll(".prompt-card");
 
-navigator.clipboard.writeText(text);
+cards.forEach(card=>{
+card.style.display = "none";
+});
 
-const toast =
-document.getElementById("toast");
+const random =
+Math.floor(Math.random()*cards.length);
 
-toast.classList.add("show");
-
-setTimeout(()=>{
-toast.classList.remove("show");
-},2000);
+cards[random].style.display = "block";
 
 }
 
-/* PARTICLES */
+/* PROMPT COUNTER */
 
-for(let i=0;i<60;i++){
+document.getElementById("promptCount")
+.innerText =
+document.querySelectorAll(".prompt-card").length;
 
-let particle =
-document.createElement("div");
+/* SCROLL ANIMATION */
 
-particle.classList.add("particle");
+const observer =
+new IntersectionObserver(entries=>{
 
-particle.style.left =
-Math.random()*100 + "vw";
+entries.forEach(entry=>{
 
-particle.style.animationDuration =
-(Math.random()*5 + 3) + "s";
+if(entry.isIntersecting){
 
-particle.style.opacity =
-Math.random();
-
-particle.style.transform =
-`scale(${Math.random()})`;
-
-document
-.getElementById("particles")
-.appendChild(particle);
+entry.target.style.opacity = "1";
+entry.target.style.transform =
+"translateY(0px)";
 
 }
 
-/* SEARCH */
+});
 
-const search =
-document.querySelector(".search-box input");
-
-search.addEventListener("input",()=>{
-
-let value =
-search.value.toLowerCase();
+});
 
 document
 .querySelectorAll(".prompt-card")
 .forEach(card=>{
 
-card.style.display =
-card.innerText.toLowerCase()
-.includes(value)
-? "block"
-: "none";
+card.style.opacity = "0";
+card.style.transform =
+"translateY(50px)";
+
+card.style.transition =
+"0.8s";
+
+observer.observe(card);
 
 });
 
-});
+/* AUTO MUSIC VOLUME */
 
-/* CURSOR GLOW */
+const music =
+document.getElementById("bgMusic");
 
-const glow =
-document.querySelector(".cursor-glow");
-
-document.addEventListener("mousemove",(e)=>{
-
-glow.style.left =
-e.clientX + "px";
-
-glow.style.top =
-e.clientY + "px";
-
-});
-
-/* MUSIC */
-
-document.addEventListener("click",function(){
-
-document
-.getElementById("bgMusic")
-.play();
-
-});
+if(music){
+music.volume = 0.3;
+}
 
 </script>
-
-</body>
-</html>
