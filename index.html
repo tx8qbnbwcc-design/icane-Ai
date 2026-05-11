@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ICANE AI</title>
+<title>PREMIUM PROMPTS</title>
 
 <style>
 
@@ -11,14 +11,15 @@
 margin:0;
 padding:0;
 box-sizing:border-box;
+font-family:Arial,sans-serif;
 }
 
 body{
-font-family:Arial,sans-serif;
-background:linear-gradient(to bottom,#000,#07131f,#02050a);
+background:
+linear-gradient(180deg,#050505,#07131f,#02050a);
 color:white;
-padding:20px;
 overflow-x:hidden;
+padding:20px;
 }
 
 /* BACKGROUND */
@@ -32,7 +33,7 @@ width:100%;
 height:100%;
 background:
 radial-gradient(circle at top left,#00ffcc22,transparent 30%),
-radial-gradient(circle at bottom right,#00ffee11,transparent 30%);
+radial-gradient(circle at bottom right,#00ffee11,transparent 35%);
 z-index:-3;
 animation:bgmove 8s infinite alternate;
 }
@@ -42,69 +43,36 @@ from{
 transform:translateY(0px);
 }
 to{
-transform:translateY(-25px);
+transform:translateY(-30px);
 }
-}
-
-/* NAVBAR */
-
-.navbar{
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:18px 24px;
-background:rgba(0,0,0,0.6);
-backdrop-filter:blur(12px);
-border-radius:20px;
-margin-bottom:35px;
-border:1px solid #00ffcc33;
-}
-
-.logo{
-font-size:26px;
-font-weight:900;
-letter-spacing:4px;
-color:#00ffcc;
-text-shadow:0 0 20px #00ffcc;
-}
-
-.nav-links{
-display:flex;
-gap:20px;
-}
-
-.nav-links a{
-color:white;
-text-decoration:none;
-transition:0.3s;
-}
-
-.nav-links a:hover{
-color:#00ffcc;
 }
 
 /* HERO */
 
 .hero{
 text-align:center;
-margin-bottom:40px;
+padding-top:50px;
+padding-bottom:40px;
 }
 
 .hero h1{
-font-size:70px;
+font-size:52px;
+font-weight:900;
+letter-spacing:4px;
 color:#00ffcc;
-letter-spacing:6px;
 text-shadow:
 0 0 15px #00ffcc,
-0 0 40px #00ffcc,
-0 0 80px #00ffee;
+0 0 35px #00ffee;
 animation:glow 2s infinite alternate;
 }
 
 .hero p{
 margin-top:15px;
-font-size:18px;
-color:#aaa;
+font-size:16px;
+color:#bbb;
+line-height:1.7;
+max-width:700px;
+margin-inline:auto;
 }
 
 @keyframes glow{
@@ -115,13 +83,41 @@ text-shadow:
 to{
 text-shadow:
 0 0 30px #00ffee,
-0 0 70px #00ffee;
+0 0 60px #00ffee;
 }
+}
+
+/* BUTTONS */
+
+.top-buttons{
+display:flex;
+justify-content:center;
+gap:15px;
+margin-top:25px;
+flex-wrap:wrap;
+}
+
+.top-buttons button{
+padding:14px 20px;
+border:none;
+border-radius:14px;
+background:#00ffcc;
+color:black;
+font-weight:bold;
+cursor:pointer;
+transition:0.3s;
+box-shadow:0 0 20px #00ffcc55;
+}
+
+.top-buttons button:hover{
+transform:scale(1.05);
+background:white;
 }
 
 /* SEARCH */
 
 .search-box{
+margin-top:40px;
 margin-bottom:35px;
 }
 
@@ -135,12 +131,6 @@ color:white;
 font-size:16px;
 outline:none;
 border:1px solid #00ffcc33;
-box-shadow:0 0 15px #00ffcc11;
-}
-
-.search-box input:focus{
-border:1px solid #00ffcc;
-box-shadow:0 0 25px #00ffcc55;
 }
 
 /* GRID */
@@ -156,19 +146,19 @@ gap:25px;
 .prompt-card{
 position:relative;
 overflow:hidden;
-background:rgba(15,15,15,0.75);
+background:rgba(10,10,10,0.7);
 backdrop-filter:blur(10px);
-border:1px solid #1e1e1e;
+border:1px solid #1f1f1f;
 border-radius:24px;
 padding:28px;
 transition:0.4s;
-box-shadow:0 0 20px rgba(0,255,200,0.06);
+box-shadow:0 0 20px rgba(0,255,200,0.08);
 }
 
 .prompt-card:hover{
 transform:translateY(-10px) scale(1.02);
 border:1px solid #00ffcc;
-box-shadow:0 0 40px #00ffcc44;
+box-shadow:0 0 35px #00ffcc44;
 }
 
 .prompt-card::before{
@@ -184,7 +174,6 @@ transparent,
 #00ffcc22,
 transparent
 );
-transform:rotate(45deg);
 animation:shine 6s linear infinite;
 }
 
@@ -197,16 +186,20 @@ transform:translateX(100%) translateY(100%) rotate(45deg);
 }
 }
 
+/* TAG */
+
 .tag{
 display:inline-block;
 padding:6px 12px;
-background:#00ffcc18;
-border:1px solid #00ffcc44;
+background:#00ffcc15;
+border:1px solid #00ffcc55;
 border-radius:999px;
 color:#00ffcc;
 font-size:12px;
 margin-bottom:15px;
 }
+
+/* TITLE */
 
 .prompt-card h2{
 font-size:28px;
@@ -214,16 +207,18 @@ margin-bottom:15px;
 color:#00ffcc;
 }
 
+/* TEXT */
+
 .prompt-text{
 white-space:pre-line;
 line-height:1.8;
-color:#ddd;
 font-size:15px;
+color:#ddd;
 }
 
 /* BUTTON */
 
-button{
+.copy-btn{
 margin-top:22px;
 width:100%;
 padding:15px;
@@ -231,17 +226,15 @@ border:none;
 border-radius:16px;
 background:#00ffcc;
 color:black;
-font-weight:900;
 font-size:16px;
+font-weight:bold;
 cursor:pointer;
 transition:0.3s;
-box-shadow:0 0 20px #00ffcc44;
 }
 
-button:hover{
-transform:scale(1.05);
+.copy-btn:hover{
+transform:scale(1.04);
 background:white;
-box-shadow:0 0 35px white;
 }
 
 /* TOAST */
@@ -256,9 +249,8 @@ padding:14px 20px;
 border-radius:14px;
 font-weight:bold;
 opacity:0;
-pointer-events:none;
 transition:0.4s;
-box-shadow:0 0 25px #00ffcc;
+pointer-events:none;
 z-index:99999;
 }
 
@@ -307,11 +299,11 @@ opacity:0;
 /* FOOTER */
 
 .footer{
-margin-top:50px;
+margin-top:60px;
 text-align:center;
 color:#777;
-line-height:1.8;
 padding-bottom:40px;
+line-height:1.8;
 }
 
 /* MOBILE */
@@ -319,17 +311,11 @@ padding-bottom:40px;
 @media(max-width:768px){
 
 .hero h1{
-font-size:42px;
+font-size:38px;
 }
 
-.navbar{
-flex-direction:column;
-gap:15px;
-}
-
-.nav-links{
-flex-wrap:wrap;
-justify-content:center;
+.prompt-card h2{
+font-size:24px;
 }
 
 }
@@ -341,33 +327,46 @@ justify-content:center;
 
 <div id="particles"></div>
 
-<div class="navbar">
-
-<div class="logo">
-ICANE AI
-</div>
-
-<div class="nav-links">
-<a href="#">Home</a>
-<a href="#">Prompts</a>
-<a href="#">Gallery</a>
-<a href="#">Premium</a>
-</div>
-
-</div>
+<!-- HERO -->
 
 <div class="hero">
-<h1>ICANE AI</h1>
-<p>Premium AI Prompt Collection</p>
+
+<h1>PREMIUM PROMPTS 🔒</h1>
+
+<p>
+Unlock cinematic AI prompts, anime edits,
+luxury fashion concepts, cyberpunk aesthetics,
+viral TikTok prompts, ultra realistic edits,
+and creator-style premium packs.
+</p>
+
+<div class="top-buttons">
+
+<button onclick="randomPrompt()">
+🎲 Random Prompt
+</button>
+
+<button onclick="scrollToPrompts()">
+🔥 Explore
+</button>
+
 </div>
+
+</div>
+
+<!-- SEARCH -->
 
 <div class="search-box">
-<input type="text" placeholder="Search prompts..." id="searchInput">
+<input type="text"
+placeholder="Search prompts..."
+id="searchInput">
 </div>
 
-<div class="grid">
+<!-- GRID -->
 
-<!-- PROMPT 1 -->
+<div class="grid" id="promptGrid">
+
+<!-- CARD 1 -->
 
 <div class="prompt-card">
 
@@ -378,25 +377,17 @@ ANIME
 <h2>Anime Chibi Portrait</h2>
 
 <div class="prompt-text" id="prompt1">
-Use a real face as reference photo while keeping 100% of the original facial identity and hairstyle.
-
-Create a dreamy anime-inspired aesthetic portrait with soft cinematic lighting and pastel sunset sky background.
-
-Add multiple cute 3D chibi versions of the same person around the composition.
-
-Ultra detailed,
-anime + realistic fusion,
-glossy finish,
-8K quality.
+Create a dreamy anime-inspired portrait with soft cinematic lighting, pastel colors, glossy anime style, realistic face details, cute 3D chibi versions around the character, and 8K rendering.
 </div>
 
-<button onclick="copyPrompt('prompt1')">
+<button class="copy-btn"
+onclick="copyPrompt('prompt1')">
 Copy Prompt
 </button>
 
 </div>
 
-<!-- PROMPT 2 -->
+<!-- CARD 2 -->
 
 <div class="prompt-card">
 
@@ -404,27 +395,20 @@ Copy Prompt
 CYBERPUNK
 </div>
 
-<h2>Tokyo Street Racing</h2>
+<h2>Tokyo Racing</h2>
 
 <div class="prompt-text" id="prompt2">
-Photorealistic anime-style young man standing beside a red sports car at night.
-
-Neon blue lighting,
-Japanese street racing atmosphere,
-wet Tokyo street,
-cinematic reflections,
-futuristic cyberpunk vibe,
-ultra realistic,
-8K quality.
+Photorealistic anime-style young man beside a red sports car at night, neon blue lighting, wet Tokyo street, cinematic reflections, futuristic cyberpunk vibe, 8K quality.
 </div>
 
-<button onclick="copyPrompt('prompt2')">
+<button class="copy-btn"
+onclick="copyPrompt('prompt2')">
 Copy Prompt
 </button>
 
 </div>
 
-<!-- PROMPT 3 -->
+<!-- CARD 3 -->
 
 <div class="prompt-card">
 
@@ -435,22 +419,38 @@ MONEY
 <h2>Money Gun Scene</h2>
 
 <div class="prompt-text" id="prompt3">
-Create a realistic HD photo of an urban-looking man lying casually on a table full of dollar bills while holding a money gun.
-
-Dramatic lighting,
-slow-motion flying cash effect,
-cinematic atmosphere,
-realistic shadows,
-8K realism.
+Urban man lying on a table full of dollar bills holding a money gun, dramatic lighting, slow-motion flying cash, realistic shadows, cinematic atmosphere, 8K realism.
 </div>
 
-<button onclick="copyPrompt('prompt3')">
+<button class="copy-btn"
+onclick="copyPrompt('prompt3')">
 Copy Prompt
 </button>
 
 </div>
 
-<!-- PROMPT 4 -->
+<!-- CARD 4 -->
+
+<div class="prompt-card">
+
+<div class="tag">
+LUXURY
+</div>
+
+<h2>Royal Mafia Portrait</h2>
+
+<div class="prompt-text" id="prompt4">
+Dark luxury portrait of a young man sitting on a throne chair, cinematic shadows, retro mafia atmosphere, premium fashion styling, dramatic lighting, ultra realistic details.
+</div>
+
+<button class="copy-btn"
+onclick="copyPrompt('prompt4')">
+Copy Prompt
+</button>
+
+</div>
+
+<!-- CARD 5 -->
 
 <div class="prompt-card">
 
@@ -458,23 +458,20 @@ Copy Prompt
 FASHION
 </div>
 
-<h2>Luxury Winter Editorial</h2>
+<h2>Winter Editorial</h2>
 
-<div class="prompt-text" id="prompt4">
-Craft a moody winter fashion editorial with oversized mint-green puffer jacket,
-luxury accessories,
-cinematic soft lighting,
-editorial magazine aesthetic,
-premium winter vibe.
+<div class="prompt-text" id="prompt5">
+Moody fashion editorial with oversized winter puffer jacket, luxury accessories, cinematic winter lighting, soft shadows, glossy magazine aesthetic.
 </div>
 
-<button onclick="copyPrompt('prompt4')">
+<button class="copy-btn"
+onclick="copyPrompt('prompt5')">
 Copy Prompt
 </button>
 
 </div>
 
-<!-- PROMPT 5 -->
+<!-- CARD 6 -->
 
 <div class="prompt-card">
 
@@ -482,57 +479,31 @@ Copy Prompt
 RED CINEMA
 </div>
 
-<h2>Red Monochrome Portrait</h2>
-
-<div class="prompt-text" id="prompt5">
-Capture an ultra-stylized cinematic portrait inside a glowing monochromatic red environment.
-
-Dramatic overhead camera angle,
-luxury fashion styling,
-futuristic shadows,
-premium magazine vibe.
-</div>
-
-<button onclick="copyPrompt('prompt5')">
-Copy Prompt
-</button>
-
-</div>
-
-<!-- PROMPT 6 -->
-
-<div class="prompt-card">
-
-<div class="tag">
-THRONE
-</div>
-
-<h2>Royal Mafia Portrait</h2>
+<h2>Red Monochrome</h2>
 
 <div class="prompt-text" id="prompt6">
-Design a cinematic fashion portrait of a young man seated on a baroque throne chair.
-
-Dark luxury atmosphere,
-powerful posture,
-retro aristocratic vibe,
-cinematic shadows,
-8K realism.
+Ultra cinematic portrait inside a glowing red environment with futuristic fashion styling, dramatic camera angle, glossy skin lighting, luxury cyberpunk atmosphere.
 </div>
 
-<button onclick="copyPrompt('prompt6')">
+<button class="copy-btn"
+onclick="copyPrompt('prompt6')">
 Copy Prompt
 </button>
 
 </div>
 
 </div>
+
+<!-- TOAST -->
 
 <div id="toast">
 Prompt Copied ✓
 </div>
 
+<!-- FOOTER -->
+
 <div class="footer">
-ICANE AI • Cyberpunk Premium Prompt Vault
+ICANE AI • Premium Cyberpunk Prompt Collection
 </div>
 
 <script>
@@ -581,9 +552,43 @@ card.innerText.toLowerCase()
 
 });
 
+/* RANDOM */
+
+function randomPrompt(){
+
+const cards =
+document.querySelectorAll(".prompt-card");
+
+const random =
+cards[Math.floor(Math.random()*cards.length)];
+
+random.scrollIntoView({
+behavior:"smooth"
+});
+
+random.style.transform =
+"scale(1.05)";
+
+setTimeout(()=>{
+random.style.transform = "";
+},1200);
+
+}
+
+/* EXPLORE */
+
+function scrollToPrompts(){
+
+document.getElementById("promptGrid")
+.scrollIntoView({
+behavior:"smooth"
+});
+
+}
+
 /* PARTICLES */
 
-for(let i=0;i<70;i++){
+for(let i=0;i<80;i++){
 
 let particle =
 document.createElement("div");
