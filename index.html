@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>ICANE AI</title>
+
+<style>
+body{
+background:#000;
+color:white;
+font-family:Arial;
+padding:40px;
+}
+
+h1{
+text-align:center;
+font-size:64px;
+color:#00ffcc;
+margin-bottom:50px;
+}
+
+.prompt-card{
+background:#111;
+border:1px solid #222;
+border-radius:20px;
+padding:25px;
+margin-bottom:35px;
+box-shadow:0 0 25px rgba(0,255,200,0.08);
+}
+
+.prompt-card h2{
+color:#00ffcc;
+font-size:32px;
+margin-bottom:20px;
+}
+
+.prompt-text{
+white-space:pre-line;
+line-height:1.8;
+font-size:16px;
+color:#ddd;
+}
+
+button{
+margin-top:20px;
+padding:12px 24px;
+background:#00ffcc;
+color:black;
+border:none;
+border-radius:12px;
+font-weight:bold;
+font-size:16px;
+cursor:pointer;
+}
+
+button:hover{
+transform:scale(1.05);
+}
+</style>
+</head>
+
+<body>
+
+<h1>ICANE AI</h1>
+
+<!-- PROMPT 1 -->
+
+<div class="prompt-card">
+
+<h2>Anime Chibi Photo Prompt</h2>
+
+<div class="prompt-text" id="prompt1">
+Use a real face as reference photo while keeping 100% of the original facial identity and hairstyle.
+
+Create a dreamy anime-inspired aesthetic portrait with soft cinematic lighting and pastel sunset sky background.
+
+The main character stands confidently in the center wearing a stylish oversized white puffer vest, black outfit, and scarf.
+
+Around the character, add multiple cute 3D chibi versions of the same person in different poses:
+- jumping happily
+- sitting relaxed
+- holding a drink
+- smiling shyly
+- making peace sign
+- cute sleepy expression
+
+Keep all chibi characters consistent with the original face and orange fluffy hairstyle.
+
+Add white doodle elements around the composition:
+stars, sparkles, hearts, handwritten words, cute icons, motion lines, smiley faces.
+
+Include aesthetic handwritten text:
+"shine"
+"happy"
+"bright day"
+"smile"
+
+Style:
+ultra detailed,
+clean glossy finish,
+Instagram aesthetic,
+anime + realistic fusion,
+soft shadows,
+high quality rendering,
+cute sticker composition,
+vibrant pastel colors,
+dreamy atmosphere,
+8k quality.
+</div>
+
+<button onclick="copyPrompt('prompt1')">
+Copy Prompt
+</button>
+
+</div>
+
+<!-- PROMPT 2 -->
+
+<div class="prompt-card">
+
+<h2>Tokyo Street Racing Prompt</h2>
+
+<div class="prompt-text" id="prompt2">
+Gemini Prompt: Ambiance photorealistic style with typical city nighttime lighting.
+
+Dominant colors:
+neon blue,
+metallic red,
+streetlights.
+
+Mysterious futuristic urban atmosphere,
+Japanese street racing style.
+
+Main subject:
+handsome anime-style young man leaning against a red sports car.
+
+Overhead cinematic camera angle looking slightly down.
+
+Outfit:
+sports inspired leather jacket,
+retro baggy jeans,
+red Puma shoes,
+black backpack,
+hands inside pockets,
+cool confident expression.
+
+Vehicle:
+red Chevrolet Corvette Stingray style sports car,
+white racing stripes,
+Japanese stickers and typography,
+blue neon interior glow.
+
+Environment:
+wet Tokyo street at night,
+dark asphalt,
+white road markings,
+modern sidewalk,
+rain reflections,
+futuristic cinematic lighting.
+
+Style:
+ultra realistic,
+anime + real fusion,
+8K,
+high detail,
+dramatic shadows,
+cyberpunk racing vibe.
+</div>
+
+<button onclick="copyPrompt('prompt2')">
+Copy Prompt
+</button>
+
+</div>
+
+<script>
+function copyPrompt(id){
+const text = document.getElementById(id).innerText;
+navigator.clipboard.writeText(text);
+alert("Prompt copied!");
+}
+</script>
+
+</body>
+</html>
