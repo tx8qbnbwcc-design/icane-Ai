@@ -72,6 +72,86 @@ line-height:1.8;
 font-size:18px;
 color:#ddd;
 }
+  body{
+background:linear-gradient(to bottom,#000,#050816);
+background-attachment:fixed;
+}
+
+h1{
+text-shadow:0 0 20px #00ffcc;
+animation:glow 2s infinite alternate;
+}
+
+@keyframes glow{
+from{
+text-shadow:0 0 10px #00ffcc;
+}
+to{
+text-shadow:0 0 30px #00ffee,0 0 60px #00ffee;
+}
+}
+
+.prompt-card{
+transition:0.4s;
+position:relative;
+overflow:hidden;
+}
+
+.prompt-card:hover{
+transform:translateY(-8px) scale(1.01);
+box-shadow:0 0 35px #00ffcc66;
+border:1px solid #00ffcc;
+}
+
+.prompt-card::before{
+content:'';
+position:absolute;
+top:-100%;
+left:-100%;
+width:200%;
+height:200%;
+background:linear-gradient(
+45deg,
+transparent,
+#00ffcc22,
+transparent
+);
+transform:rotate(45deg);
+animation:shine 6s linear infinite;
+}
+
+@keyframes shine{
+0%{
+transform:translateX(-100%) translateY(-100%) rotate(45deg);
+}
+100%{
+transform:translateX(100%) translateY(100%) rotate(45deg);
+}
+}
+
+button{
+transition:0.3s;
+box-shadow:0 0 20px #00ffcc55;
+}
+
+button:hover{
+transform:scale(1.08);
+box-shadow:0 0 30px #00ffee;
+}
+
+::-webkit-scrollbar{
+width:10px;
+}
+
+::-webkit-scrollbar-thumb{
+background:#00ffcc;
+border-radius:20px;
+}
+
+::selection{
+background:#00ffcc;
+color:black;
+}
 </style>
 
 
