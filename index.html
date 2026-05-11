@@ -320,7 +320,268 @@ Copy Prompt
 </button>
 
 </div>
+<!-- PARTICLES BACKGROUND -->
+<div id="particles"></div>
 
+<style>
+
+/* PARTICLES */
+
+#particles{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+overflow:hidden;
+z-index:-2;
+}
+
+.particle{
+position:absolute;
+width:4px;
+height:4px;
+background:#00ffcc;
+border-radius:50%;
+opacity:0.6;
+animation:floatParticle linear infinite;
+box-shadow:0 0 10px #00ffcc;
+}
+
+@keyframes floatParticle{
+from{
+transform:translateY(100vh) scale(0);
+opacity:0;
+}
+50%{
+opacity:1;
+}
+to{
+transform:translateY(-10vh) scale(1);
+opacity:0;
+}
+}
+
+/* TOP NAVBAR */
+
+.navbar{
+position:sticky;
+top:0;
+z-index:999;
+background:rgba(0,0,0,0.6);
+backdrop-filter:blur(12px);
+padding:15px 20px;
+margin-bottom:30px;
+border-radius:20px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+border:1px solid #00ffcc33;
+}
+
+.logo{
+font-size:22px;
+font-weight:900;
+color:#00ffcc;
+letter-spacing:3px;
+text-shadow:0 0 15px #00ffcc;
+}
+
+.nav-links{
+display:flex;
+gap:15px;
+}
+
+.nav-links a{
+color:white;
+text-decoration:none;
+font-size:14px;
+transition:0.3s;
+}
+
+.nav-links a:hover{
+color:#00ffcc;
+text-shadow:0 0 10px #00ffcc;
+}
+
+/* SEARCH BAR */
+
+.search-box{
+width:100%;
+margin-bottom:35px;
+}
+
+.search-box input{
+width:100%;
+padding:16px;
+border:none;
+border-radius:16px;
+background:#0d1117;
+color:white;
+font-size:16px;
+outline:none;
+border:1px solid #00ffcc33;
+box-shadow:0 0 20px #00ffcc11;
+}
+
+.search-box input:focus{
+border:1px solid #00ffcc;
+box-shadow:0 0 25px #00ffcc55;
+}
+
+/* BADGE */
+
+.badge{
+display:inline-block;
+padding:6px 12px;
+background:#00ffcc22;
+color:#00ffcc;
+border:1px solid #00ffcc55;
+border-radius:999px;
+font-size:12px;
+margin-bottom:15px;
+backdrop-filter:blur(5px);
+}
+
+/* GRID */
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+gap:25px;
+}
+
+/* FOOTER */
+
+.footer{
+margin-top:60px;
+text-align:center;
+color:#777;
+font-size:14px;
+padding-bottom:40px;
+}
+
+/* LOADING BAR */
+
+.loading-bar{
+position:fixed;
+top:0;
+left:0;
+height:3px;
+background:#00ffcc;
+box-shadow:0 0 20px #00ffcc;
+animation:loading 3s infinite;
+z-index:99999;
+}
+
+@keyframes loading{
+0%{
+width:0%;
+}
+50%{
+width:70%;
+}
+100%{
+width:100%;
+}
+}
+
+/* GLOW CIRCLE */
+
+.glow-circle{
+position:fixed;
+width:300px;
+height:300px;
+background:#00ffcc22;
+filter:blur(120px);
+border-radius:50%;
+z-index:-3;
+animation:moveGlow 12s infinite alternate;
+}
+
+@keyframes moveGlow{
+from{
+transform:translate(-100px,-50px);
+}
+to{
+transform:translate(200px,150px);
+}
+}
+
+/* CARD NUMBER */
+
+.card-number{
+position:absolute;
+top:15px;
+right:20px;
+font-size:50px;
+font-weight:900;
+color:#ffffff08;
+pointer-events:none;
+}
+
+/* HOVER LINE */
+
+.prompt-card .line{
+position:absolute;
+bottom:0;
+left:0;
+height:2px;
+width:0%;
+background:#00ffcc;
+transition:0.5s;
+}
+
+.prompt-card:hover .line{
+width:100%;
+}
+
+</style>
+
+<div class="loading-bar"></div>
+
+<div class="glow-circle"></div>
+
+<div class="navbar">
+<div class="logo">ICANE AI</div>
+
+<div class="nav-links">
+<a href="#">Home</a>
+<a href="#">Prompts</a>
+<a href="#">Gallery</a>
+</div>
+</div>
+
+<div class="search-box">
+<input type="text" placeholder="Search AI prompts...">
+</div>
+
+<script>
+
+/* PARTICLES */
+
+for(let i=0;i<40;i++){
+
+let particle =
+document.createElement('div');
+
+particle.classList.add('particle');
+
+particle.style.left =
+Math.random()*100 + 'vw';
+
+particle.style.animationDuration =
+(5 + Math.random()*10) + 's';
+
+particle.style.animationDelay =
+Math.random()*5 + 's';
+
+document.getElementById('particles')
+.appendChild(particle);
+
+}
+
+</script>
 <script>
 
 function copyPrompt(id){
