@@ -1,84 +1,71 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ICANE AI</title>
 
 <style>
-body{
-background:#000;
-color:white;
-font-family:Arial;
-padding:40px;
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
 }
+
+html{
+scroll-behavior:smooth;
+}
+
+body{
+font-family:Arial,sans-serif;
+background:linear-gradient(to bottom,#000,#041018,#07131f);
+background-attachment:fixed;
+color:white;
+padding:25px;
+overflow-x:hidden;
+}
+
+/* BACKGROUND GLOW */
+
+body::before{
+content:'';
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:
+radial-gradient(circle at top left,#00ffcc22,transparent 30%),
+radial-gradient(circle at bottom right,#00ffee11,transparent 30%);
+z-index:-1;
+animation:bgmove 8s infinite alternate;
+}
+
+@keyframes bgmove{
+from{
+transform:translateY(0px);
+}
+to{
+transform:translateY(-20px);
+}
+}
+
+/* TITLE */
 
 h1{
 text-align:center;
 font-size:64px;
 color:#00ffcc;
+letter-spacing:6px;
 margin-bottom:50px;
-}
-
-.prompt-card{
-background:#111;
-border:1px solid #222;
-border-radius:20px;
-padding:25px;
-margin-bottom:35px;
-box-shadow:0 0 25px rgba(0,255,200,0.08);
-}
-
-.prompt-card h2{
-color:#00ffcc;
-font-size:32px;
-margin-bottom:20px;
-}
-
-.prompt-text{
-white-space:pre-line;
-line-height:1.8;
-font-size:16px;
-color:#ddd;
-}
-
-button{
-margin-top:20px;
-padding:12px 24px;
-background:#00ffcc;
-color:black;
-border:none;
-border-radius:12px;
-font-weight:bold;
-font-size:16px;
-  transition:0.3s;
-  box-shadow:0 0 15px #00ffcc;
-}
-
-
-
-button:hover{
-  transform:scale(1.08);
-  background:white;
-  box-shadow:0 0 25px white;
-}
-
-.prompt-card:hover{
-transform:translateY(-5px);
-transition:0.3s;
-box-shadow:0 0 25px #00ffcc55;
-}
-body{
-background:linear-gradient(to bottom,#000,#07131f);
-background-attachment:fixed;
-}
-
-h1{
+font-weight:900;
 text-shadow:
 0 0 10px #00ffcc,
-0 0 20px #00ffcc,
-0 0 40px #00ffcc;
-letter-spacing:4px;
-font-weight:900;
-animation:glow 2s infinite alternate;
+0 0 30px #00ffcc,
+0 0 60px #00ffee;
+animation:glow 2s infinite alternate,
+float 4s ease-in-out infinite;
 }
 
 @keyframes glow{
@@ -88,121 +75,45 @@ text-shadow:
 }
 to{
 text-shadow:
-0 0 20px #00ffee,
-0 0 50px #00ffee;
+0 0 25px #00ffee,
+0 0 60px #00ffee;
 }
 }
 
+@keyframes float{
+0%{
+transform:translateY(0px);
+}
+50%{
+transform:translateY(-5px);
+}
+100%{
+transform:translateY(0px);
+}
+}
+
+/* CARD */
+
 .prompt-card{
-transition:0.4s;
-overflow:hidden;
 position:relative;
+overflow:hidden;
+background:rgba(10,10,10,0.7);
+backdrop-filter:blur(10px);
+border:1px solid #222;
+border-radius:24px;
+padding:28px;
+margin-bottom:35px;
+transition:0.4s;
+box-shadow:0 0 25px rgba(0,255,200,0.08);
 }
 
 .prompt-card:hover{
 transform:translateY(-10px) scale(1.02);
-box-shadow:0 0 35px #00ffcc66;
 border:1px solid #00ffcc;
-}
-
-.prompt-card::before{
-content:'';
-position:absolute;
-top:-100%;
-left:-100%;
-width:200%;
-height:200%;
-background:linear-gradient(
-45deg,
-transparent,
-#00ffcc22,
-transparent
-);
-animation:shine 5s linear infinite;
-}
-
-@keyframes shine{
-0%{
-transform:translateX(-100%) translateY(-100%) rotate(45deg);
-}
-100%{
-transform:translateX(100%) translateY(100%) rotate(45deg);
-}
-}
-
-button{
-transition:0.3s;
-box-shadow:0 0 20px #00ffcc55;
-}
-
-button:hover{
-transform:scale(1.08);
-background:white;
-box-shadow:0 0 30px white;
-}
-
-img{
-transition:0.4s;
-}
-
-img:hover{
-transform:scale(1.03);
-}
-
-::-webkit-scrollbar{
-width:10px;
-}
-
-::-webkit-scrollbar-thumb{
-background:#00ffcc;
-border-radius:20px;
-}
-
-::selection{
-background:#00ffcc;
-color:black;
-}
-h2{
-color:#00ffcc;
-font-size:32px;
-margin-bottom:20px;
-}
-
-p{
-line-height:1.8;
-font-size:18px;
-color:#ddd;
-}
-  body{
-background:linear-gradient(to bottom,#000,#050816);
-background-attachment:fixed;
-}
-
-h1{
-text-shadow:0 0 20px #00ffcc;
-animation:glow 2s infinite alternate;
-}
-
-@keyframes glow{
-from{
-text-shadow:0 0 10px #00ffcc;
-}
-to{
-text-shadow:0 0 30px #00ffee,0 0 60px #00ffee;
-}
-}
-
-.prompt-card{
-transition:0.4s;
-position:relative;
-overflow:hidden;
-}
-
-.prompt-card:hover{
-transform:translateY(-8px) scale(1.01);
 box-shadow:0 0 35px #00ffcc66;
-border:1px solid #00ffcc;
 }
+
+/* SHINE EFFECT */
 
 .prompt-card::before{
 content:'';
@@ -230,15 +141,86 @@ transform:translateX(100%) translateY(100%) rotate(45deg);
 }
 }
 
+/* CARD BORDER LIGHT */
+
+.prompt-card::after{
+content:'';
+position:absolute;
+inset:0;
+border-radius:24px;
+padding:1px;
+background:linear-gradient(
+45deg,
+transparent,
+#00ffcc55,
+transparent
+);
+-webkit-mask:
+linear-gradient(#fff 0 0) content-box,
+linear-gradient(#fff 0 0);
+-webkit-mask-composite:xor;
+mask-composite:exclude;
+pointer-events:none;
+}
+
+/* TEXT */
+
+.prompt-card h2{
+color:#00ffcc;
+font-size:34px;
+margin-bottom:20px;
+text-shadow:0 0 10px #00ffcc55;
+}
+
+.prompt-text{
+white-space:pre-line;
+line-height:1.9;
+font-size:17px;
+color:#ddd;
+}
+
+/* BUTTON */
+
 button{
+margin-top:25px;
+padding:14px 24px;
+width:100%;
+background:#00ffcc;
+color:black;
+border:none;
+border-radius:16px;
+font-size:18px;
+font-weight:bold;
+cursor:pointer;
 transition:0.3s;
 box-shadow:0 0 20px #00ffcc55;
 }
 
 button:hover{
-transform:scale(1.08);
-box-shadow:0 0 30px #00ffee;
+transform:scale(1.05);
+background:white;
+box-shadow:0 0 35px white;
 }
+
+button:active{
+transform:scale(0.96);
+}
+
+/* IMAGE */
+
+img{
+width:100%;
+border-radius:20px;
+margin-bottom:15px;
+transition:0.4s;
+box-shadow:0 0 25px #00ffcc22;
+}
+
+img:hover{
+transform:scale(1.03);
+}
+
+/* SCROLLBAR */
 
 ::-webkit-scrollbar{
 width:10px;
@@ -249,22 +231,41 @@ background:#00ffcc;
 border-radius:20px;
 }
 
+/* TEXT SELECT */
+
 ::selection{
 background:#00ffcc;
 color:black;
 }
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+body{
+padding:18px;
+}
+
+h1{
+font-size:44px;
+}
+
+.prompt-card h2{
+font-size:26px;
+}
+
+.prompt-text{
+font-size:15px;
+}
+
+}
+
 </style>
-
-
-
-
 </head>
 
 <body>
 
 <h1>ICANE AI</h1>
-
-<!-- PROMPT 1 -->
 
 <div class="prompt-card">
 
@@ -285,28 +286,11 @@ Around the character, add multiple cute 3D chibi versions of the same person in 
 - making peace sign
 - cute sleepy expression
 
-Keep all chibi characters consistent with the original face and orange fluffy hairstyle.
-
-Add white doodle elements around the composition:
-stars, sparkles, hearts, handwritten words, cute icons, motion lines, smiley faces.
-
-Include aesthetic handwritten text:
-"shine"
-"happy"
-"bright day"
-"smile"
-
 Style:
 ultra detailed,
-clean glossy finish,
-Instagram aesthetic,
 anime + realistic fusion,
-soft shadows,
-high quality rendering,
-cute sticker composition,
-vibrant pastel colors,
-dreamy atmosphere,
-8k quality.
+8k quality,
+dreamy atmosphere.
 </div>
 
 <button onclick="copyPrompt('prompt1')">
@@ -315,57 +299,20 @@ Copy Prompt
 
 </div>
 
-<!-- PROMPT 2 -->
-
 <div class="prompt-card">
 
 <h2>Tokyo Street Racing Prompt</h2>
 
 <div class="prompt-text" id="prompt2">
-Gemini Prompt: Ambiance photorealistic style with typical city nighttime lighting.
+Photorealistic anime-style young man standing beside a red sports car at night.
 
-Dominant colors:
-neon blue,
-metallic red,
-streetlights.
-
-Mysterious futuristic urban atmosphere,
-Japanese street racing style.
-
-Main subject:
-handsome anime-style young man leaning against a red sports car.
-
-Overhead cinematic camera angle looking slightly down.
-
-Outfit:
-sports inspired leather jacket,
-retro baggy jeans,
-red Puma shoes,
-black backpack,
-hands inside pockets,
-cool confident expression.
-
-Vehicle:
-red Chevrolet Corvette Stingray style sports car,
-white racing stripes,
-Japanese stickers and typography,
-blue neon interior glow.
-
-Environment:
-wet Tokyo street at night,
-dark asphalt,
-white road markings,
-modern sidewalk,
-rain reflections,
-futuristic cinematic lighting.
-
-Style:
+Neon blue lighting,
+Japanese street racing atmosphere,
+wet Tokyo street,
+cinematic reflections,
+cyberpunk vibe,
 ultra realistic,
-anime + real fusion,
-8K,
-high detail,
-dramatic shadows,
-cyberpunk racing vibe.
+8k quality.
 </div>
 
 <button onclick="copyPrompt('prompt2')">
@@ -375,30 +322,19 @@ Copy Prompt
 </div>
 
 <script>
-function copyPrompt(id){
-const text = document.getElementById(id).innerText;
-navigator.clipboard.writeText(text);
-alert("Prompt copied!");
-}
-</script>
-<div class="card">
-<img src="https://i.imgur.com/8Km9tLL.jpeg">
-<h2>Anime Street Racing</h2>
-<p>
-Photorealistic anime boy standing beside a red sports car at night,
-neon blue lighting, japanese street racing atmosphere,
-cinematic reflections, futuristic city vibes.
-</p>
-</div>
 
-<div class="card">
-<img src="https://i.imgur.com/jx17oHT.jpeg">
-<h2>3D Chibi Style</h2>
-<p>
-Cute 3D chibi character around realistic portrait,
-soft pastel lighting, doodle stars and hearts,
-instagram aesthetic composition.
-</p>
-</div>
+function copyPrompt(id){
+
+const text =
+document.getElementById(id).innerText;
+
+navigator.clipboard.writeText(text);
+
+alert("Prompt copied!");
+
+}
+
+</script>
+
 </body>
 </html>
