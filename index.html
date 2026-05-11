@@ -26,7 +26,7 @@ padding:25px;
 overflow-x:hidden;
 }
 
-/* BACKGROUND GLOW */
+/* BACKGROUND */
 
 body::before{
 content:'';
@@ -38,7 +38,7 @@ height:100%;
 background:
 radial-gradient(circle at top left,#00ffcc22,transparent 30%),
 radial-gradient(circle at bottom right,#00ffee11,transparent 30%);
-z-index:-1;
+z-index:-3;
 animation:bgmove 8s infinite alternate;
 }
 
@@ -70,8 +70,7 @@ float 4s ease-in-out infinite;
 
 @keyframes glow{
 from{
-text-shadow:
-0 0 10px #00ffcc;
+text-shadow:0 0 10px #00ffcc;
 }
 to{
 text-shadow:
@@ -92,277 +91,7 @@ transform:translateY(0px);
 }
 }
 
-/* CARD */
-
-.prompt-card{
-position:relative;
-overflow:hidden;
-background:rgba(10,10,10,0.7);
-backdrop-filter:blur(10px);
-border:1px solid #222;
-border-radius:24px;
-padding:28px;
-margin-bottom:35px;
-transition:0.4s;
-box-shadow:0 0 25px rgba(0,255,200,0.08);
-}
-
-.prompt-card:hover{
-transform:translateY(-10px) scale(1.02);
-border:1px solid #00ffcc;
-box-shadow:0 0 35px #00ffcc66;
-}
-
-/* SHINE EFFECT */
-
-.prompt-card::before{
-content:'';
-position:absolute;
-top:-100%;
-left:-100%;
-width:200%;
-height:200%;
-background:linear-gradient(
-45deg,
-transparent,
-#00ffcc22,
-transparent
-);
-transform:rotate(45deg);
-animation:shine 6s linear infinite;
-}
-
-@keyframes shine{
-0%{
-transform:translateX(-100%) translateY(-100%) rotate(45deg);
-}
-100%{
-transform:translateX(100%) translateY(100%) rotate(45deg);
-}
-}
-
-/* CARD BORDER LIGHT */
-
-.prompt-card::after{
-content:'';
-position:absolute;
-inset:0;
-border-radius:24px;
-padding:1px;
-background:linear-gradient(
-45deg,
-transparent,
-#00ffcc55,
-transparent
-);
--webkit-mask:
-linear-gradient(#fff 0 0) content-box,
-linear-gradient(#fff 0 0);
--webkit-mask-composite:xor;
-mask-composite:exclude;
-pointer-events:none;
-}
-
-/* TEXT */
-
-.prompt-card h2{
-color:#00ffcc;
-font-size:34px;
-margin-bottom:20px;
-text-shadow:0 0 10px #00ffcc55;
-}
-
-.prompt-text{
-white-space:pre-line;
-line-height:1.9;
-font-size:17px;
-color:#ddd;
-}
-
-/* BUTTON */
-
-button{
-margin-top:25px;
-padding:14px 24px;
-width:100%;
-background:#00ffcc;
-color:black;
-border:none;
-border-radius:16px;
-font-size:18px;
-font-weight:bold;
-cursor:pointer;
-transition:0.3s;
-box-shadow:0 0 20px #00ffcc55;
-}
-
-button:hover{
-transform:scale(1.05);
-background:white;
-box-shadow:0 0 35px white;
-}
-
-button:active{
-transform:scale(0.96);
-}
-
-/* IMAGE */
-
-img{
-width:100%;
-border-radius:20px;
-margin-bottom:15px;
-transition:0.4s;
-box-shadow:0 0 25px #00ffcc22;
-}
-
-img:hover{
-transform:scale(1.03);
-}
-
-/* SCROLLBAR */
-
-::-webkit-scrollbar{
-width:10px;
-}
-
-::-webkit-scrollbar-thumb{
-background:#00ffcc;
-border-radius:20px;
-}
-
-/* TEXT SELECT */
-
-::selection{
-background:#00ffcc;
-color:black;
-}
-
-/* MOBILE */
-
-@media(max-width:768px){
-
-body{
-padding:18px;
-}
-
-h1{
-font-size:44px;
-}
-
-.prompt-card h2{
-font-size:26px;
-}
-
-.prompt-text{
-font-size:15px;
-}
-
-}
-
-</style>
-</head>
-
-<body>
-
-<h1>ICANE AI</h1>
-
-<div class="prompt-card">
-
-<h2>Anime Chibi Photo Prompt</h2>
-
-<div class="prompt-text" id="prompt1">
-Use a real face as reference photo while keeping 100% of the original facial identity and hairstyle.
-
-Create a dreamy anime-inspired aesthetic portrait with soft cinematic lighting and pastel sunset sky background.
-
-The main character stands confidently in the center wearing a stylish oversized white puffer vest, black outfit, and scarf.
-
-Around the character, add multiple cute 3D chibi versions of the same person in different poses:
-- jumping happily
-- sitting relaxed
-- holding a drink
-- smiling shyly
-- making peace sign
-- cute sleepy expression
-
-Style:
-ultra detailed,
-anime + realistic fusion,
-8k quality,
-dreamy atmosphere.
-</div>
-
-<button onclick="copyPrompt('prompt1')">
-Copy Prompt
-</button>
-
-</div>
-
-<div class="prompt-card">
-
-<h2>Tokyo Street Racing Prompt</h2>
-
-<div class="prompt-text" id="prompt2">
-Photorealistic anime-style young man standing beside a red sports car at night.
-
-Neon blue lighting,
-Japanese street racing atmosphere,
-wet Tokyo street,
-cinematic reflections,
-cyberpunk vibe,
-ultra realistic,
-8k quality.
-</div>
-
-<button onclick="copyPrompt('prompt2')">
-Copy Prompt
-</button>
-
-</div>
-<!-- PARTICLES BACKGROUND -->
-<div id="particles"></div>
-
-<style>
-
-/* PARTICLES */
-
-#particles{
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-overflow:hidden;
-z-index:-2;
-}
-
-.particle{
-position:absolute;
-width:4px;
-height:4px;
-background:#00ffcc;
-border-radius:50%;
-opacity:0.6;
-animation:floatParticle linear infinite;
-box-shadow:0 0 10px #00ffcc;
-}
-
-@keyframes floatParticle{
-from{
-transform:translateY(100vh) scale(0);
-opacity:0;
-}
-50%{
-opacity:1;
-}
-to{
-transform:translateY(-10vh) scale(1);
-opacity:0;
-}
-}
-
-/* TOP NAVBAR */
+/* NAVBAR */
 
 .navbar{
 position:sticky;
@@ -404,7 +133,7 @@ color:#00ffcc;
 text-shadow:0 0 10px #00ffcc;
 }
 
-/* SEARCH BAR */
+/* SEARCH */
 
 .search-box{
 width:100%;
@@ -429,36 +158,162 @@ border:1px solid #00ffcc;
 box-shadow:0 0 25px #00ffcc55;
 }
 
-/* BADGE */
+/* CARD */
 
-.badge{
-display:inline-block;
-padding:6px 12px;
-background:#00ffcc22;
+.prompt-card{
+position:relative;
+overflow:hidden;
+background:rgba(10,10,10,0.7);
+backdrop-filter:blur(10px);
+border:1px solid #222;
+border-radius:24px;
+padding:28px;
+margin-bottom:35px;
+transition:0.4s;
+box-shadow:0 0 25px rgba(0,255,200,0.08);
+}
+
+.prompt-card:hover{
+transform:translateY(-10px) scale(1.02);
+border:1px solid #00ffcc;
+box-shadow:0 0 35px #00ffcc66;
+}
+
+.prompt-card::before{
+content:'';
+position:absolute;
+top:-100%;
+left:-100%;
+width:200%;
+height:200%;
+background:linear-gradient(
+45deg,
+transparent,
+#00ffcc22,
+transparent
+);
+transform:rotate(45deg);
+animation:shine 6s linear infinite;
+}
+
+@keyframes shine{
+0%{
+transform:translateX(-100%) translateY(-100%) rotate(45deg);
+}
+100%{
+transform:translateX(100%) translateY(100%) rotate(45deg);
+}
+}
+
+.prompt-card h2{
 color:#00ffcc;
-border:1px solid #00ffcc55;
-border-radius:999px;
-font-size:12px;
-margin-bottom:15px;
-backdrop-filter:blur(5px);
+font-size:34px;
+margin-bottom:20px;
+text-shadow:0 0 10px #00ffcc55;
 }
 
-/* GRID */
-
-.grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-gap:25px;
+.prompt-text{
+white-space:pre-line;
+line-height:1.9;
+font-size:17px;
+color:#ddd;
 }
 
-/* FOOTER */
+/* BUTTON */
 
-.footer{
-margin-top:60px;
-text-align:center;
-color:#777;
-font-size:14px;
-padding-bottom:40px;
+button{
+margin-top:25px;
+padding:14px 24px;
+width:100%;
+background:#00ffcc;
+color:black;
+border:none;
+border-radius:16px;
+font-size:18px;
+font-weight:bold;
+cursor:pointer;
+transition:0.3s;
+box-shadow:0 0 20px #00ffcc55;
+}
+
+button:hover{
+transform:scale(1.05);
+background:white;
+box-shadow:0 0 35px white;
+}
+
+/* TOAST */
+
+#toast{
+position:fixed;
+bottom:30px;
+right:30px;
+background:#00ffcc;
+color:black;
+padding:14px 22px;
+border-radius:14px;
+font-weight:bold;
+opacity:0;
+pointer-events:none;
+transition:0.4s;
+box-shadow:0 0 20px #00ffcc;
+z-index:99999;
+}
+
+#toast.show{
+opacity:1;
+transform:translateY(-10px);
+}
+
+/* PARTICLES */
+
+#particles{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+overflow:hidden;
+z-index:-2;
+}
+
+.particle{
+position:absolute;
+width:4px;
+height:4px;
+background:#00ffcc;
+border-radius:50%;
+opacity:0.7;
+animation:floatParticle linear infinite;
+box-shadow:0 0 10px #00ffcc;
+}
+
+@keyframes floatParticle{
+from{
+transform:translateY(100vh) scale(0);
+opacity:0;
+}
+50%{
+opacity:1;
+}
+to{
+transform:translateY(-10vh) scale(1);
+opacity:0;
+}
+}
+
+/* CURSOR GLOW */
+
+.cursor-glow{
+position:fixed;
+width:300px;
+height:300px;
+border-radius:50%;
+background:#00ffcc22;
+pointer-events:none;
+filter:blur(80px);
+transform:translate(-50%,-50%);
+z-index:-1;
 }
 
 /* LOADING BAR */
@@ -486,103 +341,131 @@ width:100%;
 }
 }
 
-/* GLOW CIRCLE */
+/* MOBILE */
 
-.glow-circle{
-position:fixed;
-width:300px;
-height:300px;
-background:#00ffcc22;
-filter:blur(120px);
-border-radius:50%;
-z-index:-3;
-animation:moveGlow 12s infinite alternate;
+@media(max-width:768px){
+
+body{
+padding:18px;
 }
 
-@keyframes moveGlow{
-from{
-transform:translate(-100px,-50px);
-}
-to{
-transform:translate(200px,150px);
-}
+h1{
+font-size:44px;
 }
 
-/* CARD NUMBER */
-
-.card-number{
-position:absolute;
-top:15px;
-right:20px;
-font-size:50px;
-font-weight:900;
-color:#ffffff08;
-pointer-events:none;
+.prompt-card h2{
+font-size:26px;
 }
 
-/* HOVER LINE */
-
-.prompt-card .line{
-position:absolute;
-bottom:0;
-left:0;
-height:2px;
-width:0%;
-background:#00ffcc;
-transition:0.5s;
+.prompt-text{
+font-size:15px;
 }
 
-.prompt-card:hover .line{
-width:100%;
 }
 
 </style>
+</head>
+
+<body>
 
 <div class="loading-bar"></div>
 
-<div class="glow-circle"></div>
+<div id="particles"></div>
+
+<div class="cursor-glow"></div>
 
 <div class="navbar">
-<div class="logo">ICANE AI</div>
+
+<div class="logo">
+ICANE AI
+</div>
 
 <div class="nav-links">
 <a href="#">Home</a>
 <a href="#">Prompts</a>
 <a href="#">Gallery</a>
 </div>
+
 </div>
+
+<h1>ICANE AI</h1>
 
 <div class="search-box">
 <input type="text" placeholder="Search AI prompts...">
 </div>
 
+<!-- PROMPT 1 -->
+
+<div class="prompt-card">
+
+<h2>Anime Chibi Prompt</h2>
+
+<div class="prompt-text" id="prompt1">
+Use a real face as reference photo while keeping 100% of the original facial identity and hairstyle.
+
+Create a dreamy anime-inspired aesthetic portrait with soft cinematic lighting and pastel sunset sky background.
+</div>
+
+<button onclick="copyPrompt('prompt1')">
+Copy Prompt
+</button>
+
+</div>
+
+<!-- PROMPT 2 -->
+
+<div class="prompt-card">
+
+<h2>Tokyo Racing Prompt</h2>
+
+<div class="prompt-text" id="prompt2">
+Photorealistic anime-style young man standing beside a red sports car at night.
+
+Neon blue lighting,
+Japanese street racing atmosphere,
+wet Tokyo street,
+cyberpunk vibe,
+ultra realistic,
+8k quality.
+</div>
+
+<button onclick="copyPrompt('prompt2')">
+Copy Prompt
+</button>
+
+</div>
+
+<!-- PROMPT 3 -->
+
+<div class="prompt-card">
+
+<h2>Money Gun Prompt</h2>
+
+<div class="prompt-text" id="prompt3">
+Create a realistic HD photo of an urban-looking man lying casually on a table full of dollar bills while holding a money gun.
+</div>
+
+<button onclick="copyPrompt('prompt3')">
+Copy Prompt
+</button>
+
+</div>
+
+<!-- TOAST -->
+
+<div id="toast">
+Prompt Copied ✓
+</div>
+
+<!-- MUSIC -->
+
+<audio id="bgMusic" autoplay loop>
+<source src="music.mp3" type="audio/mpeg">
+</audio>
+
 <script>
 
-/* PARTICLES */
-
-for(let i=0;i<40;i++){
-
-let particle =
-document.createElement('div');
-
-particle.classList.add('particle');
-
-particle.style.left =
-Math.random()*100 + 'vw';
-
-particle.style.animationDuration =
-(5 + Math.random()*10) + 's';
-
-particle.style.animationDelay =
-Math.random()*5 + 's';
-
-document.getElementById('particles')
-.appendChild(particle);
-
-}
-
-</script>
-<script>
+/* COPY */
 
 function copyPrompt(id){
 
@@ -591,93 +474,94 @@ document.getElementById(id).innerText;
 
 navigator.clipboard.writeText(text);
 
-alert("Prompt copied!");
+const toast =
+document.getElementById("toast");
+
+toast.classList.add("show");
+
+setTimeout(()=>{
+toast.classList.remove("show");
+},2000);
 
 }
 
-</script>
-</body>-ийн ӨМНӨ, буюу </script>-ийн дараа paste хийгээд нэм 😎
+/* PARTICLES */
 
-<div class="prompt-box">
-<h2>PROMPT 3</h2>
-<div class="prompt-text" id="prompt3">
-Create a realistic HD photo (without changing the hairstyle and face shape) of an urban-looking man lying casually on a table full of dollar bills, wearing an oversized black hoodie. In his hand, he holds a money gun, pointing upwards at the camera. Dollar bills fly in all directions, frozen in mid-air as if filmed in slow motion, creating a dramatic atmosphere. Beside the man, several people sit around the table, busy counting the stacks of money in front of them. The floor is littered with scattered dollar bills, while the bills floating in the air add a dynamic feel. The scene was shot from a high angle taken directly from above using a wide lens, resulting in a deep cinematic perspective. Dramatic film-style lighting and color grading, hyper-realistic details, 8K resolution, with a clear depth of field and a very realistic atmosphere. create a square photo.
-</div>
-<button onclick="copyPrompt('prompt3')">Copy Prompt</button>
-</div>
-<div class="prompt-box">
-<h2>PROMPT 4</h2>
-<div class="prompt-text" id="prompt4">
-Craft a hyperrealistic, futuristic fashion editorial featuring a solitary male figure seated with assertive composure at the center of a minimalist void. The subject wears oversized, dramatically voluminous black trousers with rich fabric texture and an equally stark, structured black blazer layered over a matte-black turtleneck — all contributing to a monolithic silhouette that feels both powerful and enigmatic.
-</div>
-<button onclick="copyPrompt('prompt4')">Copy Prompt</button>
-</div>
-<div class="prompt-box">
-<h2>PROMPT 5</h2>
-<div class="prompt-text" id="prompt5">
-Craft a moody, introspective winter editorial with a cinematic stillness. The subject sits gracefully in a soft cocoon of oversized winterwear — a pale mint-green puffer jacket layered over textured knits and creamy wide-leg pants. A ribbed beanie hugs the head, and the styling is elevated with stacked silver rings and layered chain necklaces that glint under the moody light.
-</div>
-<button onclick="copyPrompt('prompt5')">Copy Prompt</button>
-</div>
-<div class="prompt-box">
-<h2>PROMPT 6</h2>
-<div class="prompt-text" id="prompt6">
-Stage a hyperrealistic, studio-lit fashion portrait that fuses icy luxury with urban dominance. The subject squats in a commanding pose, draped in a voluminous, high-shine silver-white puffer jacket layered over an off-white tonal base: oversized cargo trousers and a soft textured sweatshirt.
-</div>
-<button onclick="copyPrompt('prompt6')">Copy Prompt</button>
-</div>
-<div class="prompt-box">
-<h2>PROMPT 7</h2>
-<div class="prompt-text" id="prompt7">
-Create a bold overhead fashion portrait that fuses softness with street edge, capturing a youthful subject squatting beneath a studio spotlight in a cocoon of comfort and attitude. The figure wears a plush, cream-colored sherpa hoodie with the hood drawn tightly over their head.
-</div>
-<button onclick="copyPrompt('prompt7')">Copy Prompt</button>
-</div>
-<div class="prompt-box">
-<h2>PROMPT 8</h2>
-<div class="prompt-text" id="prompt8">
-Capture an ultra-stylized fashion portrait with bold cinematic attitude, placing the subject in the center of a blazing monochromatic red environment. The subject stands in a wide, commanding pose, shot from a dramatic high angle that emphasizes swagger and scale.
-</div>
-<button onclick="copyPrompt('prompt8')">Copy Prompt</button>
-</div>
-<div class="prompt-box">
-<h2>PROMPT 9</h2>
-<div class="prompt-text" id="prompt9">
-Design a cinematic fashion portrait that oozes quiet dominance and retro-luxury flair. The subject is seated regally on a baroque-style throne chair, legs wide, posture unbothered — a vision of Gen Z aristocracy.
-</div>
-<button onclick="copyPrompt('prompt9')">Copy Prompt</button>
-</div>
-  <audio id="bgMusic" autoplay loop>
-  <source src="music.mp3" type="audio/mpeg">
-</audio>
+for(let i=0;i<60;i++){
 
-<script>
-document.addEventListener("click", function () {
-  document.getElementById("bgMusic").play();
+let particle =
+document.createElement("div");
+
+particle.classList.add("particle");
+
+particle.style.left =
+Math.random()*100 + "vw";
+
+particle.style.animationDuration =
+(Math.random()*5 + 3) + "s";
+
+particle.style.opacity =
+Math.random();
+
+particle.style.transform =
+`scale(${Math.random()})`;
+
+document
+.getElementById("particles")
+.appendChild(particle);
+
+}
+
+/* SEARCH */
+
+const search =
+document.querySelector(".search-box input");
+
+search.addEventListener("input",()=>{
+
+let value =
+search.value.toLowerCase();
+
+document
+.querySelectorAll(".prompt-card")
+.forEach(card=>{
+
+card.style.display =
+card.innerText.toLowerCase()
+.includes(value)
+? "block"
+: "none";
+
 });
+
+});
+
+/* CURSOR GLOW */
+
+const glow =
+document.querySelector(".cursor-glow");
+
+document.addEventListener("mousemove",(e)=>{
+
+glow.style.left =
+e.clientX + "px";
+
+glow.style.top =
+e.clientY + "px";
+
+});
+
+/* MUSIC */
+
+document.addEventListener("click",function(){
+
+document
+.getElementById("bgMusic")
+.play();
+
+});
+
 </script>
-  <div id="particles"></div>
 
-<script>
-for(let i = 0; i < 60; i++){
-
-  let particle = document.createElement("div");
-
-  particle.classList.add("particle");
-
-  particle.style.left = Math.random() * 100 + "vw";
-
-  particle.style.animationDuration =
-  (Math.random() * 5 + 3) + "s";
-
-  particle.style.opacity = Math.random();
-
-  particle.style.transform =
-  `scale(${Math.random()})`;
-
-  document.getElementById("particles")
-  .appendChild(particle);
-}
-</script>
 </body>
 </html>
