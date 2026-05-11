@@ -1,194 +1,614 @@
-<!-- PREMIUM SECTION -->
-
-<div class="prompt-card">
-
-<h2>PREMIUM PROMPTS 🔒</h2>
-
-<div class="prompt-text">
-Unlock exclusive cinematic AI prompts,
-luxury fashion concepts,
-viral TikTok prompt packs,
-ultra realistic cyberpunk edits,
-anime aesthetic collections,
-and creator-only drops.
-</div>
-
-<button>
-COMING SOON
-</button>
-
-</div>
-
-<!-- RANDOM PROMPT BUTTON -->
-
-<button onclick="randomPrompt()">
-Random Prompt 🎲
-</button>
-
-<!-- PROMPT COUNTER -->
-
-<div class="prompt-card">
-
-<h2>Total Prompt Collection</h2>
-
-<div class="prompt-text">
-Total Prompts:
-<span id="promptCount"></span>
-</div>
-
-</div>
-
-<!-- FOOTER -->
-
-<div class="prompt-card">
-
-<h2>ICANE AI COMMUNITY</h2>
-
-<div class="prompt-text">
-Create viral AI visuals.
-Copy elite prompts.
-Build futuristic content.
-
-TikTok • Instagram • Gemini • ChatGPT
-</div>
-
-</div>
-
-<!-- EXTRA GLOW -->
-
-<div class="extra-glow"></div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ICANE AI</title>
 
 <style>
 
-/* EXTRA GLOW */
-
-.extra-glow{
-position:fixed;
-right:-100px;
-bottom:-100px;
-width:350px;
-height:350px;
-background:#00ffee22;
-filter:blur(120px);
-border-radius:50%;
-z-index:-3;
-animation:extraGlow 10s infinite alternate;
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
 }
 
-@keyframes extraGlow{
+body{
+font-family:Arial,sans-serif;
+background:linear-gradient(to bottom,#000,#07131f,#02050a);
+color:white;
+padding:20px;
+overflow-x:hidden;
+}
+
+/* BACKGROUND */
+
+body::before{
+content:'';
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:
+radial-gradient(circle at top left,#00ffcc22,transparent 30%),
+radial-gradient(circle at bottom right,#00ffee11,transparent 30%);
+z-index:-3;
+animation:bgmove 8s infinite alternate;
+}
+
+@keyframes bgmove{
 from{
-transform:translate(0px,0px);
+transform:translateY(0px);
 }
 to{
-transform:translate(-100px,-80px);
+transform:translateY(-25px);
 }
 }
 
-/* RANDOM BUTTON */
+/* NAVBAR */
 
-button.random-btn{
-margin-bottom:30px;
+.navbar{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:18px 24px;
+background:rgba(0,0,0,0.6);
+backdrop-filter:blur(12px);
+border-radius:20px;
+margin-bottom:35px;
+border:1px solid #00ffcc33;
 }
 
-/* PREMIUM CARD */
-
-.premium{
-border:1px solid gold;
-box-shadow:0 0 30px rgba(255,215,0,0.2);
-}
-
-.premium h2{
-color:gold;
-text-shadow:0 0 15px gold;
-}
-
-/* COUNTER */
-
-#promptCount{
+.logo{
+font-size:26px;
+font-weight:900;
+letter-spacing:4px;
 color:#00ffcc;
+text-shadow:0 0 20px #00ffcc;
+}
+
+.nav-links{
+display:flex;
+gap:20px;
+}
+
+.nav-links a{
+color:white;
+text-decoration:none;
+transition:0.3s;
+}
+
+.nav-links a:hover{
+color:#00ffcc;
+}
+
+/* HERO */
+
+.hero{
+text-align:center;
+margin-bottom:40px;
+}
+
+.hero h1{
+font-size:70px;
+color:#00ffcc;
+letter-spacing:6px;
+text-shadow:
+0 0 15px #00ffcc,
+0 0 40px #00ffcc,
+0 0 80px #00ffee;
+animation:glow 2s infinite alternate;
+}
+
+.hero p{
+margin-top:15px;
+font-size:18px;
+color:#aaa;
+}
+
+@keyframes glow{
+from{
+text-shadow:
+0 0 10px #00ffcc;
+}
+to{
+text-shadow:
+0 0 30px #00ffee,
+0 0 70px #00ffee;
+}
+}
+
+/* SEARCH */
+
+.search-box{
+margin-bottom:35px;
+}
+
+.search-box input{
+width:100%;
+padding:18px;
+border:none;
+border-radius:16px;
+background:#111;
+color:white;
+font-size:16px;
+outline:none;
+border:1px solid #00ffcc33;
+box-shadow:0 0 15px #00ffcc11;
+}
+
+.search-box input:focus{
+border:1px solid #00ffcc;
+box-shadow:0 0 25px #00ffcc55;
+}
+
+/* GRID */
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+gap:25px;
+}
+
+/* CARD */
+
+.prompt-card{
+position:relative;
+overflow:hidden;
+background:rgba(15,15,15,0.75);
+backdrop-filter:blur(10px);
+border:1px solid #1e1e1e;
+border-radius:24px;
+padding:28px;
+transition:0.4s;
+box-shadow:0 0 20px rgba(0,255,200,0.06);
+}
+
+.prompt-card:hover{
+transform:translateY(-10px) scale(1.02);
+border:1px solid #00ffcc;
+box-shadow:0 0 40px #00ffcc44;
+}
+
+.prompt-card::before{
+content:'';
+position:absolute;
+top:-100%;
+left:-100%;
+width:200%;
+height:200%;
+background:linear-gradient(
+45deg,
+transparent,
+#00ffcc22,
+transparent
+);
+transform:rotate(45deg);
+animation:shine 6s linear infinite;
+}
+
+@keyframes shine{
+0%{
+transform:translateX(-100%) translateY(-100%) rotate(45deg);
+}
+100%{
+transform:translateX(100%) translateY(100%) rotate(45deg);
+}
+}
+
+.tag{
+display:inline-block;
+padding:6px 12px;
+background:#00ffcc18;
+border:1px solid #00ffcc44;
+border-radius:999px;
+color:#00ffcc;
+font-size:12px;
+margin-bottom:15px;
+}
+
+.prompt-card h2{
+font-size:28px;
+margin-bottom:15px;
+color:#00ffcc;
+}
+
+.prompt-text{
+white-space:pre-line;
+line-height:1.8;
+color:#ddd;
+font-size:15px;
+}
+
+/* BUTTON */
+
+button{
+margin-top:22px;
+width:100%;
+padding:15px;
+border:none;
+border-radius:16px;
+background:#00ffcc;
+color:black;
+font-weight:900;
+font-size:16px;
+cursor:pointer;
+transition:0.3s;
+box-shadow:0 0 20px #00ffcc44;
+}
+
+button:hover{
+transform:scale(1.05);
+background:white;
+box-shadow:0 0 35px white;
+}
+
+/* TOAST */
+
+#toast{
+position:fixed;
+bottom:30px;
+right:30px;
+background:#00ffcc;
+color:black;
+padding:14px 20px;
+border-radius:14px;
 font-weight:bold;
-font-size:24px;
+opacity:0;
+pointer-events:none;
+transition:0.4s;
+box-shadow:0 0 25px #00ffcc;
+z-index:99999;
+}
+
+#toast.show{
+opacity:1;
+transform:translateY(-10px);
+}
+
+/* PARTICLES */
+
+#particles{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+overflow:hidden;
+z-index:-2;
+}
+
+.particle{
+position:absolute;
+width:4px;
+height:4px;
+background:#00ffcc;
+border-radius:50%;
+opacity:0.7;
+box-shadow:0 0 10px #00ffcc;
+animation:floatParticle linear infinite;
+}
+
+@keyframes floatParticle{
+from{
+transform:translateY(100vh) scale(0);
+opacity:0;
+}
+50%{
+opacity:1;
+}
+to{
+transform:translateY(-10vh) scale(1);
+opacity:0;
+}
 }
 
 /* FOOTER */
 
 .footer{
+margin-top:50px;
 text-align:center;
-padding:30px;
-color:#888;
-font-size:14px;
+color:#777;
 line-height:1.8;
+padding-bottom:40px;
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+.hero h1{
+font-size:42px;
+}
+
+.navbar{
+flex-direction:column;
+gap:15px;
+}
+
+.nav-links{
+flex-wrap:wrap;
+justify-content:center;
+}
+
 }
 
 </style>
+</head>
+
+<body>
+
+<div id="particles"></div>
+
+<div class="navbar">
+
+<div class="logo">
+ICANE AI
+</div>
+
+<div class="nav-links">
+<a href="#">Home</a>
+<a href="#">Prompts</a>
+<a href="#">Gallery</a>
+<a href="#">Premium</a>
+</div>
+
+</div>
+
+<div class="hero">
+<h1>ICANE AI</h1>
+<p>Premium AI Prompt Collection</p>
+</div>
+
+<div class="search-box">
+<input type="text" placeholder="Search prompts..." id="searchInput">
+</div>
+
+<div class="grid">
+
+<!-- PROMPT 1 -->
+
+<div class="prompt-card">
+
+<div class="tag">
+ANIME
+</div>
+
+<h2>Anime Chibi Portrait</h2>
+
+<div class="prompt-text" id="prompt1">
+Use a real face as reference photo while keeping 100% of the original facial identity and hairstyle.
+
+Create a dreamy anime-inspired aesthetic portrait with soft cinematic lighting and pastel sunset sky background.
+
+Add multiple cute 3D chibi versions of the same person around the composition.
+
+Ultra detailed,
+anime + realistic fusion,
+glossy finish,
+8K quality.
+</div>
+
+<button onclick="copyPrompt('prompt1')">
+Copy Prompt
+</button>
+
+</div>
+
+<!-- PROMPT 2 -->
+
+<div class="prompt-card">
+
+<div class="tag">
+CYBERPUNK
+</div>
+
+<h2>Tokyo Street Racing</h2>
+
+<div class="prompt-text" id="prompt2">
+Photorealistic anime-style young man standing beside a red sports car at night.
+
+Neon blue lighting,
+Japanese street racing atmosphere,
+wet Tokyo street,
+cinematic reflections,
+futuristic cyberpunk vibe,
+ultra realistic,
+8K quality.
+</div>
+
+<button onclick="copyPrompt('prompt2')">
+Copy Prompt
+</button>
+
+</div>
+
+<!-- PROMPT 3 -->
+
+<div class="prompt-card">
+
+<div class="tag">
+MONEY
+</div>
+
+<h2>Money Gun Scene</h2>
+
+<div class="prompt-text" id="prompt3">
+Create a realistic HD photo of an urban-looking man lying casually on a table full of dollar bills while holding a money gun.
+
+Dramatic lighting,
+slow-motion flying cash effect,
+cinematic atmosphere,
+realistic shadows,
+8K realism.
+</div>
+
+<button onclick="copyPrompt('prompt3')">
+Copy Prompt
+</button>
+
+</div>
+
+<!-- PROMPT 4 -->
+
+<div class="prompt-card">
+
+<div class="tag">
+FASHION
+</div>
+
+<h2>Luxury Winter Editorial</h2>
+
+<div class="prompt-text" id="prompt4">
+Craft a moody winter fashion editorial with oversized mint-green puffer jacket,
+luxury accessories,
+cinematic soft lighting,
+editorial magazine aesthetic,
+premium winter vibe.
+</div>
+
+<button onclick="copyPrompt('prompt4')">
+Copy Prompt
+</button>
+
+</div>
+
+<!-- PROMPT 5 -->
+
+<div class="prompt-card">
+
+<div class="tag">
+RED CINEMA
+</div>
+
+<h2>Red Monochrome Portrait</h2>
+
+<div class="prompt-text" id="prompt5">
+Capture an ultra-stylized cinematic portrait inside a glowing monochromatic red environment.
+
+Dramatic overhead camera angle,
+luxury fashion styling,
+futuristic shadows,
+premium magazine vibe.
+</div>
+
+<button onclick="copyPrompt('prompt5')">
+Copy Prompt
+</button>
+
+</div>
+
+<!-- PROMPT 6 -->
+
+<div class="prompt-card">
+
+<div class="tag">
+THRONE
+</div>
+
+<h2>Royal Mafia Portrait</h2>
+
+<div class="prompt-text" id="prompt6">
+Design a cinematic fashion portrait of a young man seated on a baroque throne chair.
+
+Dark luxury atmosphere,
+powerful posture,
+retro aristocratic vibe,
+cinematic shadows,
+8K realism.
+</div>
+
+<button onclick="copyPrompt('prompt6')">
+Copy Prompt
+</button>
+
+</div>
+
+</div>
+
+<div id="toast">
+Prompt Copied ✓
+</div>
+
+<div class="footer">
+ICANE AI • Cyberpunk Premium Prompt Vault
+</div>
 
 <script>
 
-/* RANDOM PROMPT */
+/* COPY */
 
-function randomPrompt(){
+function copyPrompt(id){
 
-const cards =
-document.querySelectorAll(".prompt-card");
+const text =
+document.getElementById(id).innerText;
 
-cards.forEach(card=>{
-card.style.display = "none";
-});
+navigator.clipboard.writeText(text);
 
-const random =
-Math.floor(Math.random()*cards.length);
+const toast =
+document.getElementById("toast");
 
-cards[random].style.display = "block";
+toast.classList.add("show");
 
-}
-
-/* PROMPT COUNTER */
-
-document.getElementById("promptCount")
-.innerText =
-document.querySelectorAll(".prompt-card").length;
-
-/* SCROLL ANIMATION */
-
-const observer =
-new IntersectionObserver(entries=>{
-
-entries.forEach(entry=>{
-
-if(entry.isIntersecting){
-
-entry.target.style.opacity = "1";
-entry.target.style.transform =
-"translateY(0px)";
+setTimeout(()=>{
+toast.classList.remove("show");
+},2000);
 
 }
 
-});
+/* SEARCH */
 
-});
+const search =
+document.getElementById("searchInput");
+
+search.addEventListener("input",()=>{
+
+let value =
+search.value.toLowerCase();
 
 document
 .querySelectorAll(".prompt-card")
 .forEach(card=>{
 
-card.style.opacity = "0";
-card.style.transform =
-"translateY(50px)";
-
-card.style.transition =
-"0.8s";
-
-observer.observe(card);
+card.style.display =
+card.innerText.toLowerCase()
+.includes(value)
+? "block"
+: "none";
 
 });
 
-/* AUTO MUSIC VOLUME */
+});
 
-const music =
-document.getElementById("bgMusic");
+/* PARTICLES */
 
-if(music){
-music.volume = 0.3;
+for(let i=0;i<70;i++){
+
+let particle =
+document.createElement("div");
+
+particle.classList.add("particle");
+
+particle.style.left =
+Math.random()*100 + "vw";
+
+particle.style.animationDuration =
+(5 + Math.random()*10) + "s";
+
+particle.style.opacity =
+Math.random();
+
+particle.style.transform =
+`scale(${Math.random()})`;
+
+document
+.getElementById("particles")
+.appendChild(particle);
+
 }
 
 </script>
+
+</body>
+</html>
