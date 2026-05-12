@@ -1,31 +1,46 @@
-<!-- ========================================= -->
-<!-- FOLLOW UNLOCK SYSTEM -->
+<!-- ===================================== -->
+<!-- INSTAGRAM FOLLOW LOCK -->
 <!-- BODY TAG-IIN DARAAN PASTE -->
-<!-- ========================================= -->
+<!-- ===================================== -->
 
-<div id="followLock">
+<div id="followGate">
 
-<div class="lock-box">
+<div class="gate-box">
 
-<h1>🔒 PROMPT НЭЭХ</h1>
+<div class="gate-glow"></div>
 
-<p>
-Free Prompt үзэхийн тулд эхлээд Instagram follow хийнэ үү.
+<h1>🔒 ICANE AI ACCESS</h1>
+
+<p class="gate-text">
+
+Free Prompt үзэхийн тулд эхлээд Instagram Follow хийх шаардлагатай.
+
 </p>
 
-<a href="https://instagram.com/YOUR_INSTAGRAM"
+<a
+href="https://www.instagram.com/icane_academy?igsh=aWVmdTJuYmk4amE3"
 target="_blank"
-class="follow-btn">
+class="insta-btn">
 
-🔥 FOLLOW ХИЙХ
+📸 @ICANE_ACADEMY FOLLOW
 
 </a>
 
-<button onclick="unlockSite()" class="unlock-btn">
+<button
+class="unlock-btn"
+onclick="unlockPrompts()">
 
-⚡ FOLLOW ХИЙСЭН
+⚡ FOLLOW ХИЙСЭН — SITE НЭЭХ
 
 </button>
+
+<div class="mini-text">
+
+🔥 Premium AI Prompt Library  
+🚀 Cinematic / Fashion / Luxury Prompt  
+⚡ Монгол AI Community
+
+</div>
 
 </div>
 
@@ -33,21 +48,13 @@ class="follow-btn">
 
 <style>
 
-#followLock{
+#followGate{
 
 position:fixed;
 
 inset:0;
 
-background:
-linear-gradient(
-135deg,
-#020617,
-#000000,
-#07111f
-);
-
-z-index:999999;
+z-index:999999999;
 
 display:flex;
 
@@ -55,34 +62,51 @@ justify-content:center;
 
 align-items:center;
 
-padding:20px;
+padding:25px;
+
+overflow:hidden;
+
+background:
+radial-gradient(circle at top,#00ffee22,transparent 40%),
+radial-gradient(circle at bottom,#ff00cc22,transparent 40%),
+linear-gradient(
+135deg,
+#020617,
+#000000,
+#07111f
+);
+
+backdrop-filter:blur(20px);
 
 }
 
-.lock-box{
+.gate-box{
+
+position:relative;
 
 width:100%;
 
-max-width:420px;
+max-width:430px;
 
-padding:50px 30px;
+padding:55px 30px;
 
 border-radius:35px;
 
 background:
-rgba(8,12,20,0.92);
+rgba(10,15,25,0.92);
 
 border:1px solid #00ffee33;
 
-text-align:center;
+overflow:hidden;
 
-backdrop-filter:blur(20px);
+text-align:center;
 
 box-shadow:
 0 0 80px #00ffee22,
-0 0 120px #ff00cc11;
+0 0 140px #ff00cc22;
 
-animation:floatBox 3s infinite ease-in-out;
+animation:
+floatBox 4s ease-in-out infinite;
 
 }
 
@@ -93,7 +117,7 @@ transform:translateY(0px);
 }
 
 50%{
-transform:translateY(-10px);
+transform:translateY(-12px);
 }
 
 100%{
@@ -102,9 +126,29 @@ transform:translateY(0px);
 
 }
 
-.lock-box h1{
+.gate-glow{
+
+position:absolute;
+
+width:300px;
+
+height:300px;
+
+background:#00ffee33;
+
+filter:blur(120px);
+
+top:-120px;
+
+right:-100px;
+
+}
+
+.gate-box h1{
 
 font-size:42px;
+
+font-weight:900;
 
 margin-bottom:20px;
 
@@ -117,42 +161,40 @@ linear-gradient(
 );
 
 -webkit-background-clip:text;
+
 -webkit-text-fill-color:transparent;
 
-font-weight:900;
+letter-spacing:2px;
 
 }
 
-.lock-box p{
-
-color:#d1d5db;
+.gate-text{
 
 font-size:17px;
 
 line-height:1.8;
 
+color:#d1d5db;
+
 margin-bottom:35px;
 
 }
 
-.follow-btn{
+.insta-btn{
 
-display:block;
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+gap:10px;
 
 width:100%;
 
 padding:18px;
 
-margin-bottom:18px;
-
-border-radius:20px;
-
-background:
-linear-gradient(
-90deg,
-#ff00cc,
-#00aaff
-);
+border-radius:22px;
 
 text-decoration:none;
 
@@ -162,20 +204,30 @@ font-weight:800;
 
 color:white;
 
+margin-bottom:18px;
+
+background:
+linear-gradient(
+90deg,
+#ff00cc,
+#ff4d6d,
+#ff8800
+);
+
 transition:0.4s;
 
 box-shadow:
-0 0 40px #00ffee33;
+0 0 50px #ff00cc55;
 
 }
 
-.follow-btn:hover{
+.insta-btn:hover{
 
 transform:
-scale(1.03);
+scale(1.04);
 
 box-shadow:
-0 0 60px #00ffee66;
+0 0 70px #ff00cc99;
 
 }
 
@@ -187,16 +239,7 @@ padding:18px;
 
 border:none;
 
-border-radius:20px;
-
-background:
-linear-gradient(
-90deg,
-#00ffee,
-#00ffaa
-);
-
-color:black;
+border-radius:22px;
 
 font-size:18px;
 
@@ -204,17 +247,42 @@ font-weight:900;
 
 cursor:pointer;
 
+background:
+linear-gradient(
+90deg,
+#00ffee,
+#00ffaa,
+#00ccff
+);
+
+color:black;
+
 transition:0.4s;
+
+box-shadow:
+0 0 50px #00ffee55;
 
 }
 
 .unlock-btn:hover{
 
 transform:
-scale(1.03);
+scale(1.04);
 
 box-shadow:
-0 0 50px #00ffee88;
+0 0 70px #00ffeeaa;
+
+}
+
+.mini-text{
+
+margin-top:28px;
+
+font-size:14px;
+
+line-height:1.9;
+
+color:#9ca3af;
 
 }
 
@@ -222,238 +290,32 @@ box-shadow:
 
 <script>
 
-function unlockSite(){
+function unlockPrompts(){
 
-document.getElementById("followLock").style.display="none";
+localStorage.setItem(
+"icane_follow_unlock",
+"yes"
+);
 
-localStorage.setItem("followed","yes");
+document.getElementById(
+"followGate"
+).style.display="none";
 
 }
 
 window.onload=function(){
 
-if(localStorage.getItem("followed")==="yes"){
+if(
+localStorage.getItem(
+"icane_follow_unlock"
+)==="yes"
+){
 
-document.getElementById("followLock").style.display="none";
-
-}
-
-}
-
-</script>
-
-<!-- ========================================= -->
-<!-- PROMPT SECTION -->
-<!-- ========================================= -->
-
-<section class="prompt-grid">
-
-<!-- PROMPT 1 -->
-
-<div class="prompt-card">
-
-<img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=1200&auto=format&fit=crop">
-
-<h2>🔥 Dark Stair Portrait</h2>
-
-<p>
-Cinematic dark staircase portrait with dramatic lighting and realistic shadows.
-</p>
-
-<button onclick="copyPrompt('p1')">
-
-⚡ PROMPT COPY
-
-</button>
-
-<div id="p1" style="display:none;">
-
-Create a cinematic portrait of a young man standing on a dark staircase with moody lighting, realistic shadows, sharp jawline, soft warm skin tones, black outfit, dramatic cinematic composition, 85mm lens, shallow depth of field, realistic photography, ultra detailed skin texture, dark urban atmosphere, premium editorial look.
-
-</div>
-
-</div>
-
-<!-- PROMPT 2 -->
-
-<div class="prompt-card">
-
-<img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=1200&auto=format&fit=crop">
-
-<h2>⚡ Mirror Selfie</h2>
-
-<p>
-Luxury Korean aesthetic mirror selfie with warm cinematic lighting.
-</p>
-
-<button onclick="copyPrompt('p2')">
-
-⚡ PROMPT COPY
-
-</button>
-
-<div id="p2" style="display:none;">
-
-Create a highly realistic mirror selfie of a stylish young man with messy wavy black hair, black oversized t-shirt, silver necklace, cinematic warm indoor lighting, realistic skin texture, modern aesthetic room, Instagram vibe, soft shadows, shallow depth of field, 35mm lens, premium realism.
-
-</div>
-
-</div>
-
-<!-- PROMPT 3 -->
-
-<div class="prompt-card">
-
-<img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=1200&auto=format&fit=crop">
-
-<h2>🚀 Luxury Suit</h2>
-
-<p>
-Dark luxury Korean suit portrait with cinematic editorial atmosphere.
-</p>
-
-<button onclick="copyPrompt('p3')">
-
-⚡ PROMPT COPY
-
-</button>
-
-<div id="p3" style="display:none;">
-
-Create a hyper realistic portrait of a young man in a black Korean suit with soft cinematic lighting, realistic shadows, premium editorial style, sharp jawline, luxury atmosphere, clean dark background, realistic skin pores, golden hour sunlight, modern aesthetic fashion photography.
-
-</div>
-
-</div>
-
-</section>
-
-<style>
-
-.prompt-grid{
-
-display:grid;
-
-grid-template-columns:
-repeat(auto-fit,minmax(320px,1fr));
-
-gap:35px;
-
-padding:70px 25px;
-
-max-width:1400px;
-
-margin:auto;
+document.getElementById(
+"followGate"
+).style.display="none";
 
 }
-
-.prompt-card{
-
-background:
-rgba(10,15,25,0.9);
-
-border-radius:35px;
-
-overflow:hidden;
-
-border:1px solid #ffffff12;
-
-transition:0.5s;
-
-box-shadow:
-0 0 50px #00ffee11;
-
-}
-
-.prompt-card:hover{
-
-transform:
-translateY(-12px)
-scale(1.02);
-
-box-shadow:
-0 0 90px #00ffee33;
-
-}
-
-.prompt-card img{
-
-width:100%;
-
-height:430px;
-
-object-fit:cover;
-
-}
-
-.prompt-card h2{
-
-font-size:32px;
-
-padding:25px 25px 10px;
-
-}
-
-.prompt-card p{
-
-padding:0 25px 25px;
-
-color:#bdbdbd;
-
-line-height:1.7;
-
-}
-
-.prompt-card button{
-
-width:calc(100% - 50px);
-
-margin:0 25px 30px;
-
-padding:18px;
-
-border:none;
-
-border-radius:20px;
-
-background:
-linear-gradient(
-90deg,
-#ff00cc,
-#00aaff
-);
-
-color:white;
-
-font-size:17px;
-
-font-weight:800;
-
-cursor:pointer;
-
-transition:0.4s;
-
-}
-
-.prompt-card button:hover{
-
-transform:
-scale(1.03);
-
-}
-
-</style>
-
-<script>
-
-function copyPrompt(id){
-
-const text=
-document.getElementById(id).innerText;
-
-navigator.clipboard.writeText(text);
-
-alert("🔥 Prompt Copy хийгдлээ");
 
 }
 
