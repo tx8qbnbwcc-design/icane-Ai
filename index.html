@@ -1,511 +1,150 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ICANE AI PROMPTS</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;900&display=swap" rel="stylesheet">
-
-<style>
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-}
-
-html{
-scroll-behavior:smooth;
-}
-
-body{
-font-family:'Poppins',sans-serif;
-background:#050505;
-overflow-x:hidden;
-color:white;
-}
-
-/* BACKGROUND */
-
-body::before{
-content:'';
-position:fixed;
-width:100%;
-height:100%;
-top:0;
-left:0;
-background:
-radial-gradient(circle at top left,#00ffc355,transparent 30%),
-radial-gradient(circle at bottom right,#0088ff33,transparent 30%),
-linear-gradient(to bottom,#050505,#08111c,#050505);
-z-index:-5;
-}
-
-/* PARTICLES */
-
-#particles{
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-z-index:-4;
-overflow:hidden;
-}
-
-.particle{
-position:absolute;
-width:4px;
-height:4px;
-background:#00ffcc;
-border-radius:50%;
-opacity:.5;
-animation:float linear infinite;
-box-shadow:0 0 10px #00ffcc;
-}
-
-@keyframes float{
-
-0%{
-transform:translateY(100vh) scale(0);
-opacity:0;
-}
-
-50%{
-opacity:1;
-}
-
-100%{
-transform:translateY(-10vh) scale(1);
-opacity:0;
-}
-
-}
-
-/* NAVBAR */
-
-.navbar{
-position:sticky;
-top:0;
-z-index:999;
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:18px 30px;
-backdrop-filter:blur(20px);
-background:#00000099;
-border-bottom:1px solid #ffffff10;
-}
-
-.logo{
-font-size:28px;
-font-weight:900;
-color:#00ffcc;
-letter-spacing:4px;
-text-shadow:0 0 20px #00ffcc;
-}
-
-.nav-links{
-display:flex;
-gap:18px;
-}
-
-.nav-links a{
-text-decoration:none;
-color:white;
-font-size:14px;
-transition:.3s;
-}
-
-.nav-links a:hover{
-color:#00ffcc;
-}
-
-/* HERO */
-
-.hero{
-padding:100px 20px 70px;
-text-align:center;
-}
-
-.hero h1{
-font-size:70px;
-font-weight:900;
-line-height:1.1;
-margin-bottom:20px;
-background:linear-gradient(to right,#00ffcc,#ffffff);
--webkit-background-clip:text;
--webkit-text-fill-color:transparent;
-}
-
-.hero p{
-max-width:700px;
-margin:auto;
-color:#bbb;
-font-size:18px;
-line-height:1.8;
-}
-
-.hero button{
-margin-top:30px;
-padding:16px 34px;
-border:none;
-background:#00ffcc;
-border-radius:14px;
-font-size:16px;
-font-weight:700;
-cursor:pointer;
-transition:.3s;
-}
-
-.hero button:hover{
-transform:scale(1.05);
-box-shadow:0 0 30px #00ffcc;
-}
-
-/* GRID */
-
-.container{
-width:100%;
-max-width:1300px;
-margin:auto;
-padding:30px 20px 100px;
-}
-
-.grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
-gap:30px;
-}
-
-/* CARD */
-
-.card{
-position:relative;
-overflow:hidden;
-background:#111111bb;
-border:1px solid #ffffff10;
-backdrop-filter:blur(15px);
-border-radius:28px;
-transition:.4s;
-box-shadow:0 0 30px #000;
-}
-
-.card:hover{
-transform:translateY(-10px);
-border:1px solid #00ffcc55;
-box-shadow:0 0 40px #00ffcc33;
-}
-
-.card img{
-width:100%;
-height:420px;
-object-fit:cover;
-display:block;
-}
-
-.card-content{
-padding:24px;
-}
-
-.badge{
-display:inline-block;
-padding:6px 12px;
-background:#00ffcc22;
-border:1px solid #00ffcc55;
-border-radius:100px;
-font-size:12px;
-margin-bottom:16px;
-color:#00ffcc;
-}
-
-.card h2{
-font-size:24px;
-margin-bottom:15px;
-}
-
-.prompt{
-color:#cfcfcf;
-line-height:1.8;
-font-size:14px;
-white-space:pre-line;
-margin-bottom:22px;
-max-height:200px;
-overflow:auto;
-}
-
-.copy-btn{
-width:100%;
-padding:15px;
-border:none;
-background:#00ffcc;
-border-radius:14px;
-font-weight:700;
-cursor:pointer;
-transition:.3s;
-font-size:15px;
-}
-
-.copy-btn:hover{
-background:white;
-transform:scale(1.03);
-}
-
-/* FOOTER */
-
-.footer{
-padding:50px 20px;
-text-align:center;
-color:#777;
-border-top:1px solid #ffffff10;
-}
-
-/* SCROLLBAR */
-
-::-webkit-scrollbar{
-width:8px;
-}
-
-::-webkit-scrollbar-thumb{
-background:#00ffcc;
-border-radius:20px;
-}
-
-/* MOBILE */
-
-@media(max-width:768px){
-
-.hero h1{
-font-size:44px;
-}
-
-.hero p{
-font-size:15px;
-}
-
-.card img{
-height:320px;
-}
-
-}
-
-</style>
-</head>
-
-<body>
-
-<div id="particles"></div>
-
-<!-- NAVBAR -->
-
-<div class="navbar">
-
-<div class="logo">
-ICANE AI
-</div>
-
-<div class="nav-links">
-<a href="#">Home</a>
-<a href="#">Prompts</a>
-<a href="#">Premium</a>
-</div>
-
-</div>
-
-<!-- HERO -->
-
-<section class="hero">
-
-<h1>PREMIUM AI PROMPTS</h1>
-
-<p>
-Ultra realistic cinematic prompts, fashion photography prompts,
-anime edits, cyberpunk aesthetics, luxury portraits and viral AI concepts.
-</p>
-
-<button onclick="window.scrollTo(0,700)">
-Explore Prompts
-</button>
-
-</section>
-
-<!-- PROMPTS -->
-
-<div class="container">
-
-<div class="grid">
-
-<!-- CARD 1 -->
+<!-- =========================
+NEW PREMIUM PROMPT CARDS
+ENE CODIIG .grid DOTOR PASTE HIINE
+========================= -->
+
+<!-- PROMPT 11 -->
 
 <div class="card">
 
-<img src="1.webp">
+<img src="11.webp">
 
 <div class="card-content">
 
 <div class="badge">
-Cinematic
+Luxury Money
 </div>
 
-<h2>Dark Stair Portrait</h2>
+<h2>Money Gun Scene</h2>
 
-<div class="prompt" id="prompt1">
-Create a cinematic portrait of a young man standing in a dim stairway,
-dark red aesthetic, dramatic shadows,
-moody realistic lighting,
-urban cinematic vibe,
-high contrast,
-85mm photography,
-ultra realistic skin texture,
-editorial atmosphere,
-8k detail.
+<div class="prompt" id="prompt11">
+Create a realistic overhead cinematic shot of a stylish young man lying on a table full of dollar bills,
+oversized black hoodie,
+money gun pointing upward,
+cash flying everywhere in slow motion,
+dark luxury atmosphere,
+dramatic shadows,
+high angle lens shot,
+realistic skin texture,
+moody color grading,
+8k ultra realistic fashion photography,
+cinematic crime aesthetic,
+deep depth of field.
 </div>
 
-<button class="copy-btn" onclick="copyPrompt('prompt1')">
+<button class="copy-btn" onclick="copyPrompt('prompt11')">
 Copy Prompt
 </button>
 
 </div>
 </div>
 
-<!-- CARD 2 -->
+<!-- PROMPT 12 -->
 
 <div class="card">
 
-<img src="2.webp">
+<img src="12.webp">
 
 <div class="card-content">
 
 <div class="badge">
-Warm Portrait
+Cyberpunk
 </div>
 
-<h2>Soft Orange Mood</h2>
+<h2>Tokyo Neon Street</h2>
 
-<div class="prompt" id="prompt2">
-Create a warm cinematic close-up portrait of a stylish young man with glasses,
-orange ambient lighting,
-soft shadows,
-moody emotional atmosphere,
-realistic skin,
-cinematic color grading,
-shallow depth of field,
-studio portrait photography,
-hyper realistic.
+<div class="prompt" id="prompt12">
+Photorealistic cyberpunk portrait of a young man standing alone in a Tokyo alley at night,
+blue and pink neon signs,
+wet reflective street,
+black oversized hoodie,
+Japanese street racing atmosphere,
+dramatic cinematic fog,
+realistic shadows,
+anime-inspired realism,
+8k detail,
+high fashion photography.
 </div>
 
-<button class="copy-btn" onclick="copyPrompt('prompt2')">
+<button class="copy-btn" onclick="copyPrompt('prompt12')">
 Copy Prompt
 </button>
 
 </div>
 </div>
 
-<!-- CARD 3 -->
+<!-- PROMPT 13 -->
 
 <div class="card">
 
-<img src="3.webp">
+<img src="13.webp">
 
 <div class="card-content">
 
 <div class="badge">
-Golden Hour
+Studio Fashion
 </div>
 
-<h2>Nature Editorial</h2>
+<h2>Black Luxury Portrait</h2>
 
-<div class="prompt" id="prompt3">
-Young man standing in a field during golden hour,
-warm sunset lighting,
-fashion editorial aesthetic,
-dreamy atmosphere,
-natural cinematic colors,
-high detail,
-realistic portrait photography,
-soft depth of field,
-luxury magazine vibe.
-</div>
-
-<button class="copy-btn" onclick="copyPrompt('prompt3')">
-Copy Prompt
-</button>
-
-</div>
-</div>
-
-<!-- CARD 4 -->
-
-<div class="card">
-
-<img src="4.webp">
-
-<div class="card-content">
-
-<div class="badge">
-Street Racing
-</div>
-
-<h2>Car Night Scene</h2>
-
-<div class="prompt" id="prompt4">
-Photorealistic street racing portrait beside a silver sports car at night,
-blue neon lighting,
-wet street reflections,
-urban Japan vibe,
-dark cinematic atmosphere,
-realistic hoodie fashion,
-8k ultra realistic detail,
-cyberpunk style.
-</div>
-
-<button class="copy-btn" onclick="copyPrompt('prompt4')">
-Copy Prompt
-</button>
-
-</div>
-</div>
-
-<!-- CARD 5 -->
-
-<div class="card">
-
-<img src="5.webp">
-
-<div class="card-content">
-
-<div class="badge">
-Studio Portrait
-</div>
-
-<h2>Red Aura Portrait</h2>
-
-<div class="prompt" id="prompt5">
-Ultra realistic red cinematic portrait,
-dark red background,
-floating glowing numbers above head,
+<div class="prompt" id="prompt13">
+Ultra realistic studio portrait of a mysterious young man wearing luxury black fashion,
+orange cinematic background,
+minimal shadows,
 sharp jawline,
-serious expression,
-studio photography,
-high contrast shadows,
-hyper realistic skin texture,
-editorial fashion lighting,
-8k.
+soft glow around face,
+editorial fashion campaign,
+dark luxury aesthetic,
+high contrast,
+8k realistic photography,
+clean composition.
 </div>
 
-<button class="copy-btn" onclick="copyPrompt('prompt5')">
+<button class="copy-btn" onclick="copyPrompt('prompt13')">
 Copy Prompt
 </button>
 
 </div>
 </div>
 
-<!-- CARD 6 -->
+<!-- PROMPT 14 -->
 
 <div class="card">
 
-<img src="6.webp">
+<img src="14.webp">
+
+<div class="card-content">
+
+<div class="badge">
+Anime Realism
+</div>
+
+<h2>Chibi Anime Style</h2>
+
+<div class="prompt" id="prompt14">
+Use real face reference while keeping original identity and hairstyle.
+Create a dreamy anime-inspired portrait with pastel cinematic lighting,
+multiple 3D chibi versions around the character,
+cute expressions,
+Japanese anime realism fusion,
+soft glow,
+dreamy clouds,
+ultra detailed eyes,
+8k anime cinematic aesthetic.
+</div>
+
+<button class="copy-btn" onclick="copyPrompt('prompt14')">
+Copy Prompt
+</button>
+
+</div>
+</div>
+
+<!-- PROMPT 15 -->
+
+<div class="card">
+
+<img src="15.webp">
 
 <div class="card-content">
 
@@ -513,227 +152,373 @@ Copy Prompt
 Motion Blur
 </div>
 
-<h2>Glitch Effect</h2>
+<h2>Fast Street Walk</h2>
 
-<div class="prompt" id="prompt6">
-Futuristic portrait with motion blur effect,
-orange and blue cinematic lighting,
-dreamlike atmosphere,
-digital distortion,
-editorial fashion photography,
-minimal clean background,
-cyberpunk cinematic vibe,
+<div class="prompt" id="prompt15">
+Hyper realistic cinematic street photo of a fashion model walking through neon city lights,
+motion blur trails,
+orange and blue lighting,
+streetwear outfit,
+dynamic movement,
+night photography,
+rain reflections,
+editorial magazine aesthetic,
+high detail realism,
+film look.
+</div>
+
+<button class="copy-btn" onclick="copyPrompt('prompt15')">
+Copy Prompt
+</button>
+
+</div>
+</div>
+
+<!-- PROMPT 16 -->
+
+<div class="card">
+
+<img src="16.webp">
+
+<div class="card-content">
+
+<div class="badge">
+Soft Vintage
+</div>
+
+<h2>Retro Phone Call</h2>
+
+<div class="prompt" id="prompt16">
+Create a vintage cinematic portrait inside an old laundromat,
+90s retro atmosphere,
+corded telephone,
+oversized streetwear outfit,
+warm tungsten lighting,
+Kodak film aesthetic,
+soft cinematic shadows,
+high detail fashion photography,
+realistic textures,
+editorial mood.
+</div>
+
+<button class="copy-btn" onclick="copyPrompt('prompt16')">
+Copy Prompt
+</button>
+
+</div>
+</div>
+
+<!-- PROMPT 17 -->
+
+<div class="card">
+
+<img src="17.webp">
+
+<div class="card-content">
+
+<div class="badge">
+Luxury Throne
+</div>
+
+<h2>Royal Street King</h2>
+
+<div class="prompt" id="prompt17">
+Create a cinematic fashion portrait of a young king sitting on a luxury throne chair,
+black designer outfit,
+dark royal room,
+gold lighting,
+dominant expression,
+luxury rings and chains,
+editorial photography,
+deep shadows,
+hyper realistic texture,
+8k cinematic atmosphere.
+</div>
+
+<button class="copy-btn" onclick="copyPrompt('prompt17')">
+Copy Prompt
+</button>
+
+</div>
+</div>
+
+<!-- PROMPT 18 -->
+
+<div class="card">
+
+<img src="18.webp">
+
+<div class="card-content">
+
+<div class="badge">
+Winter Fashion
+</div>
+
+<h2>Snow Luxury Mood</h2>
+
+<div class="prompt" id="prompt18">
+Moody winter editorial portrait,
+oversized white puffer jacket,
+snow particles floating,
+cold cinematic lighting,
+soft blue atmosphere,
+luxury winter fashion,
+realistic skin texture,
+editorial magazine composition,
+ultra realistic 8k photography.
+</div>
+
+<button class="copy-btn" onclick="copyPrompt('prompt18')">
+Copy Prompt
+</button>
+
+</div>
+</div>
+
+<!-- PROMPT 19 -->
+
+<div class="card">
+
+<img src="19.webp">
+
+<div class="card-content">
+
+<div class="badge">
+Dark Red
+</div>
+
+<h2>Red Shadow Aura</h2>
+
+<div class="prompt" id="prompt19">
+Dark red cinematic portrait with glowing aura,
+half face hidden in shadows,
+fashion sunglasses,
+orange-red studio lighting,
+minimal background,
+luxury fashion aesthetic,
+sharp cinematic contrast,
+high detail skin texture,
+ultra realistic portrait style.
+</div>
+
+<button class="copy-btn" onclick="copyPrompt('prompt19')">
+Copy Prompt
+</button>
+
+</div>
+</div>
+
+<!-- PROMPT 20 -->
+
+<div class="card">
+
+<img src="20.webp">
+
+<div class="card-content">
+
+<div class="badge">
+Nature Mood
+</div>
+
+<h2>Cloud Field Portrait</h2>
+
+<div class="prompt" id="prompt20">
+Cinematic portrait in a giant flower field,
+cloudy blue sky,
+low angle camera shot,
+oversized fashion jacket,
+dreamy nature atmosphere,
+fashion editorial composition,
+realistic sunlight,
+soft foreground blur,
+calm dominant pose,
 high detail realism.
 </div>
 
-<button class="copy-btn" onclick="copyPrompt('prompt6')">
+<button class="copy-btn" onclick="copyPrompt('prompt20')">
 Copy Prompt
 </button>
 
 </div>
 </div>
 
-<!-- CARD 7 -->
+<!-- =========================
+GOY EFFECT NEMEH CSS
+ENE STYLE-IIG STYLE DOTOR PASTE HIINE
+========================= -->
 
-<div class="card">
+<style>
 
-<img src="7.webp">
+.card::before{
+content:'';
+position:absolute;
+inset:-2px;
+background:linear-gradient(
+45deg,
+transparent,
+#00ffcc55,
+transparent,
+#0088ff55,
+transparent
+);
+z-index:-1;
+border-radius:30px;
+animation:borderMove 5s linear infinite;
+}
 
-<div class="card-content">
+@keyframes borderMove{
 
-<div class="badge">
-Street Motion
-</div>
+0%{
+filter:hue-rotate(0deg);
+}
 
-<h2>Urban Walk</h2>
+100%{
+filter:hue-rotate(360deg);
+}
 
-<div class="prompt" id="prompt7">
-Hyper realistic street fashion portrait,
-walking in city at night,
-motion blur lights,
-cinematic urban energy,
-wet streets,
-orange and teal color grading,
-sharp face focus,
-editorial fashion photography,
-8k realistic detail.
-</div>
+}
 
-<button class="copy-btn" onclick="copyPrompt('prompt7')">
-Copy Prompt
-</button>
+.card:hover img{
+transform:scale(1.05);
+}
 
-</div>
-</div>
+.card img{
+transition:0.5s;
+}
 
-<!-- CARD 8 -->
+.card-content{
+position:relative;
+z-index:5;
+}
 
-<div class="card">
+.card::after{
+content:'';
+position:absolute;
+top:-100%;
+left:-100%;
+width:200%;
+height:200%;
+background:
+linear-gradient(
+45deg,
+transparent,
+rgba(255,255,255,0.06),
+transparent
+);
+transform:rotate(45deg);
+animation:shine 8s linear infinite;
+}
 
-<img src="8.webp">
+@keyframes shine{
 
-<div class="card-content">
+0%{
+transform:translateX(-100%) translateY(-100%) rotate(45deg);
+}
 
-<div class="badge">
-Retro Mood
-</div>
+100%{
+transform:translateX(100%) translateY(100%) rotate(45deg);
+}
 
-<h2>Laundromat Aesthetic</h2>
+}
 
-<div class="prompt" id="prompt8">
-90s laundromat fashion editorial,
-vintage cinematic lighting,
-retro outfit,
-film photography look,
-moody atmosphere,
-soft shadows,
-fashion magazine aesthetic,
-high detail realism,
-Kodak film style.
-</div>
+.copy-btn{
+position:relative;
+overflow:hidden;
+}
 
-<button class="copy-btn" onclick="copyPrompt('prompt8')">
-Copy Prompt
-</button>
+.copy-btn::before{
+content:'';
+position:absolute;
+top:0;
+left:-100%;
+width:100%;
+height:100%;
+background:
+linear-gradient(
+90deg,
+transparent,
+rgba(255,255,255,0.4),
+transparent
+);
+transition:.5s;
+}
 
-</div>
-</div>
+.copy-btn:hover::before{
+left:100%;
+}
 
-<!-- CARD 9 -->
+</style>
 
-<div class="card">
-
-<img src="9.webp">
-
-<div class="card-content">
-
-<div class="badge">
-Shadow Style
-</div>
-
-<h2>Orange Shadow Portrait</h2>
-
-<div class="prompt" id="prompt9">
-Dark shadow fashion portrait with orange background,
-minimal luxury outfit,
-black sunglasses,
-deep shadows,
-high contrast lighting,
-moody editorial atmosphere,
-ultra realistic portrait photography,
-fashion campaign style.
-</div>
-
-<button class="copy-btn" onclick="copyPrompt('prompt9')">
-Copy Prompt
-</button>
-
-</div>
-</div>
-
-<!-- CARD 10 -->
-
-<div class="card">
-
-<img src="10.webp">
-
-<div class="card-content">
-
-<div class="badge">
-Nature Fashion
-</div>
-
-<h2>Daisy Field</h2>
-
-<div class="prompt" id="prompt10">
-Cinematic portrait in a daisy flower field,
-low angle perspective,
-oversized vintage jacket,
-fashion editorial look,
-cloudy sky,
-dreamy atmosphere,
-soft foreground blur,
-realistic photography,
-calm dominant pose.
-</div>
-
-<button class="copy-btn" onclick="copyPrompt('prompt10')">
-Copy Prompt
-</button>
-
-</div>
-</div>
-
-</div>
-</div>
-
-<!-- FOOTER -->
-
-<div class="footer">
-ICANE AI © 2026 — Premium Prompt Collection
-</div>
-
-<!-- MUSIC -->
-
-<audio id="bgMusic" autoplay loop>
-<source src="music.mp3" type="audio/mpeg">
-</audio>
-
-<!-- SCRIPT -->
+<!-- =========================
+ADVANCED JAVASCRIPT
+SCRIPT-IIN DOOR PASTE HIINE
+========================= -->
 
 <script>
 
-/* COPY */
+/* RANDOM BACKGROUND COLOR GLOW */
 
-function copyPrompt(id){
+setInterval(()=>{
 
-let text =
-document.getElementById(id).innerText;
+document.body.style.backgroundPosition =
+Math.random()*100 + "% " +
+Math.random()*100 + "%";
 
-navigator.clipboard.writeText(text);
+},4000);
 
-alert("Prompt copied!");
+/* RANDOM PROMPT BUTTON */
+
+function randomPrompt(){
+
+let prompts =
+document.querySelectorAll('.card');
+
+let random =
+Math.floor(Math.random()*prompts.length);
+
+prompts[random]
+.scrollIntoView({
+behavior:'smooth'
+});
+
+prompts[random].style.transform =
+"scale(1.03)";
+
+setTimeout(()=>{
+
+prompts[random].style.transform =
+"scale(1)";
+
+},2000);
 
 }
 
-/* MUSIC */
+/* KEYBOARD EFFECT */
 
-document.addEventListener("click",function(){
+document.addEventListener("keydown",e=>{
 
-document.getElementById("bgMusic").play();
+if(e.key==="r"){
+
+randomPrompt();
+
+}
 
 });
 
-/* PARTICLES */
+/* FLOATING TITLE EFFECT */
 
-for(let i=0;i<70;i++){
+window.addEventListener("mousemove",(e)=>{
 
-let particle =
-document.createElement("div");
+let x =
+(e.clientX/window.innerWidth - 0.5)*20;
 
-particle.classList.add("particle");
+let y =
+(e.clientY/window.innerHeight - 0.5)*20;
 
-particle.style.left =
-Math.random()*100 + "vw";
+document.querySelector(".hero h1")
+.style.transform =
+`translate(${x}px,${y}px)`;
 
-particle.style.animationDuration =
-(Math.random()*10 + 5) + "s";
-
-particle.style.animationDelay =
-Math.random()*5 + "s";
-
-particle.style.opacity =
-Math.random();
-
-particle.style.transform =
-`scale(${Math.random()*2})`;
-
-document.getElementById("particles")
-.appendChild(particle);
-
-}
+});
 
 </script>
-
-</body>
-</html>
