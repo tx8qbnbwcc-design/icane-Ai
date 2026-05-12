@@ -1,74 +1,43 @@
-<!-- ===================================================== -->
-<!-- ULTRA PREMIUM INSTAGRAM FOLLOW GATE -->
+<!-- ================================================= -->
+<!-- ICANE AI REAL FOLLOW LOCK SYSTEM -->
 <!-- BODY TAG-IIN DARAAN PASTE -->
-<!-- ===================================================== -->
+<!-- ================================================= -->
 
-<div id="ultraGate">
+<div id="followLock">
 
-<div class="bg-grid"></div>
+<div class="bg"></div>
 
-<div class="orb orb-a"></div>
-<div class="orb orb-b"></div>
-<div class="orb orb-c"></div>
+<div class="neon neon1"></div>
+<div class="neon neon2"></div>
 
-<div class="gate-card">
+<div class="lockBox">
 
-<div class="live-dot"></div>
+<div class="live"></div>
 
-<div class="top-badge">
+<div class="badge">
 
-🔥 ICANE AI PREMIUM ACCESS
+🔒 FOLLOW REQUIRED
 
 </div>
 
 <h1>
 
-UNLOCK FREE PROMPTS
+ICANE AI ⚡
 
 </h1>
 
-<p class="desc">
+<p class="text">
 
-⚡ Free AI Prompt ашиглахын тулд Instagram Follow хийх шаардлагатай.  
-Follow хийсний дараа Premium Prompt Library автоматаар нээгдэнэ.
+🔥 Premium AI Prompt Library үзэхийн тулд эхлээд Instagram Follow хийх шаардлагатай.
 
 </p>
 
-<div class="features">
-
-<div class="feature">
-
-🔥 Cinematic Prompt
-
-</div>
-
-<div class="feature">
-
-⚡ Viral AI Style
-
-</div>
-
-<div class="feature">
-
-💎 Premium Collection
-
-</div>
-
-<div class="feature">
-
-🚀 Daily Update
-
-</div>
-
-</div>
-
-<div class="profile-box">
+<div class="card">
 
 <img
-src="https://i.imgur.com/Z7AzH2c.png"
-class="profile-img">
+src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png">
 
-<div class="profile-info">
+<div>
 
 <h3>@ICANE_ACADEMY</h3>
 
@@ -80,8 +49,8 @@ class="profile-img">
 
 <a
 id="followBtn"
-href="instagram://user?username=icane_academy"
-onclick="openInstagram(event)">
+href="https://www.instagram.com/icane_academy?igsh=ZXo4NDZrZGtseWZ1&utm_source=ig_contact_invite"
+target="_blank">
 
 📸 FOLLOW INSTAGRAM
 
@@ -91,21 +60,21 @@ onclick="openInstagram(event)">
 id="unlockBtn"
 disabled>
 
-🔒 FOLLOW ХИЙХ ШААРДЛАГАТАЙ
+🔒 FOLLOW ХИЙСНИЙ ДАРАА НЭЭГДЭНЭ
 
 </button>
 
-<div class="loading-wrap">
+<div class="line">
 
-<div class="loading-bar"></div>
+<div class="move"></div>
 
 </div>
 
-<div class="bottom-text">
+<div class="bottom">
 
-🔥 150+ Premium Prompt  
-⚡ AI Creator Community  
-🚀 Cinematic Quality
+⚡ 150+ Premium Prompt  
+🔥 Cinematic AI  
+🚀 Daily Update
 
 </div>
 
@@ -123,7 +92,7 @@ box-sizing:border-box;
 
 }
 
-#ultraGate{
+#followLock{
 
 position:fixed;
 
@@ -139,6 +108,8 @@ align-items:center;
 
 overflow:hidden;
 
+font-family:'Poppins',sans-serif;
+
 background:
 linear-gradient(
 135deg,
@@ -148,13 +119,11 @@ linear-gradient(
 #000000
 );
 
-font-family:'Poppins',sans-serif;
-
 }
 
-/* GRID */
+/* BACKGROUND */
 
-.bg-grid{
+.bg{
 
 position:absolute;
 
@@ -174,13 +143,13 @@ transparent 1px
 background-size:40px 40px;
 
 mask-image:
-radial-gradient(circle,#fff,transparent 85%);
+radial-gradient(circle,#fff,transparent 80%);
 
 }
 
-/* ORBS */
+/* NEON */
 
-.orb{
+.neon{
 
 position:absolute;
 
@@ -188,11 +157,11 @@ border-radius:50%;
 
 filter:blur(120px);
 
-animation:floatOrb 8s infinite ease-in-out;
+animation:float 8s infinite ease-in-out;
 
 }
 
-.orb-a{
+.neon1{
 
 width:300px;
 height:300px;
@@ -204,42 +173,28 @@ left:-80px;
 
 }
 
-.orb-b{
+.neon2{
 
 width:350px;
 height:350px;
 
 background:#ff00cc44;
 
-bottom:-120px;
+bottom:-100px;
 right:-100px;
 
 animation-delay:2s;
 
 }
 
-.orb-c{
-
-width:250px;
-height:250px;
-
-background:#0066ff55;
-
-bottom:20%;
-left:20%;
-
-animation-delay:4s;
-
-}
-
-@keyframes floatOrb{
+@keyframes float{
 
 0%{
 transform:translateY(0px);
 }
 
 50%{
-transform:translateY(-35px);
+transform:translateY(-30px);
 }
 
 100%{
@@ -248,26 +203,26 @@ transform:translateY(0px);
 
 }
 
-/* CARD */
+/* BOX */
 
-.gate-card{
+.lockBox{
 
 position:relative;
 
 width:92%;
 
-max-width:460px;
+max-width:430px;
 
-padding:45px 28px;
+padding:45px 25px;
 
-border-radius:38px;
+border-radius:35px;
 
 background:
-rgba(10,15,25,0.9);
+rgba(10,15,25,0.92);
 
-border:1px solid #ffffff15;
+border:1px solid #ffffff12;
 
-backdrop-filter:blur(24px);
+backdrop-filter:blur(25px);
 
 box-shadow:
 0 0 80px #00ffee22,
@@ -300,7 +255,7 @@ transform:translateY(0px);
 
 /* LIVE */
 
-.live-dot{
+.live{
 
 position:absolute;
 
@@ -339,7 +294,7 @@ transform:scale(1);
 
 /* BADGE */
 
-.top-badge{
+.badge{
 
 display:inline-block;
 
@@ -357,19 +312,15 @@ font-size:13px;
 
 font-weight:700;
 
-letter-spacing:1px;
-
-margin-bottom:22px;
+margin-bottom:20px;
 
 }
 
 /* TITLE */
 
-.gate-card h1{
+.lockBox h1{
 
-font-size:46px;
-
-line-height:1.1;
+font-size:48px;
 
 font-weight:900;
 
@@ -389,9 +340,9 @@ linear-gradient(
 
 }
 
-/* DESC */
+/* TEXT */
 
-.desc{
+.text{
 
 font-size:16px;
 
@@ -399,62 +350,13 @@ line-height:1.9;
 
 color:#d1d5db;
 
-margin-bottom:30px;
-
-}
-
-/* FEATURES */
-
-.features{
-
-display:grid;
-
-grid-template-columns:
-repeat(2,1fr);
-
-gap:14px;
-
 margin-bottom:28px;
 
 }
 
-.feature{
+/* CARD */
 
-padding:15px;
-
-border-radius:18px;
-
-background:
-rgba(255,255,255,0.05);
-
-border:1px solid #ffffff10;
-
-font-size:14px;
-
-font-weight:700;
-
-color:white;
-
-transition:0.4s;
-
-}
-
-.feature:hover{
-
-transform:
-translateY(-5px);
-
-background:
-rgba(0,255,238,0.08);
-
-box-shadow:
-0 0 30px #00ffee22;
-
-}
-
-/* PROFILE */
-
-.profile-box{
+.card{
 
 display:flex;
 
@@ -473,38 +375,30 @@ border:1px solid #ffffff10;
 
 margin-bottom:28px;
 
-}
-
-.profile-img{
-
-width:70px;
-height:70px;
-
-border-radius:50%;
-
-object-fit:cover;
-
-border:2px solid #00ffee55;
-
-}
-
-.profile-info{
-
 text-align:left;
 
 }
 
-.profile-info h3{
+.card img{
 
-font-size:18px;
+width:65px;
+height:65px;
 
-margin-bottom:5px;
-
-color:white;
+border-radius:20px;
 
 }
 
-.profile-info p{
+.card h3{
+
+font-size:18px;
+
+color:white;
+
+margin-bottom:5px;
+
+}
+
+.card p{
 
 font-size:13px;
 
@@ -512,7 +406,7 @@ color:#9ca3af;
 
 }
 
-/* FOLLOW BTN */
+/* FOLLOW */
 
 #followBtn{
 
@@ -552,11 +446,11 @@ box-shadow:
 transition:0.4s;
 
 animation:
-followGlow 2s infinite;
+glow 2s infinite;
 
 }
 
-@keyframes followGlow{
+@keyframes glow{
 
 0%{
 
@@ -588,7 +482,7 @@ scale(1.03);
 
 }
 
-/* UNLOCK BTN */
+/* UNLOCK */
 
 #unlockBtn{
 
@@ -633,16 +527,9 @@ box-shadow:
 
 }
 
-#unlockBtn.active:hover{
+/* LINE */
 
-transform:
-scale(1.03);
-
-}
-
-/* LOADING */
-
-.loading-wrap{
+.line{
 
 width:100%;
 
@@ -660,7 +547,7 @@ position:relative;
 
 }
 
-.loading-bar{
+.move{
 
 position:absolute;
 
@@ -676,11 +563,11 @@ transparent,
 transparent
 );
 
-animation:loading 1.6s infinite linear;
+animation:move 1.5s infinite linear;
 
 }
 
-@keyframes loading{
+@keyframes move{
 
 0%{
 left:-40%;
@@ -694,7 +581,7 @@ left:100%;
 
 /* FOOT */
 
-.bottom-text{
+.bottom{
 
 margin-top:22px;
 
@@ -710,21 +597,15 @@ color:#9ca3af;
 
 @media(max-width:600px){
 
-.gate-card{
+.lockBox{
 
-padding:38px 22px;
+padding:35px 20px;
 
 }
 
-.gate-card h1{
+.lockBox h1{
 
 font-size:38px;
-
-}
-
-.desc{
-
-font-size:15px;
 
 }
 
@@ -734,23 +615,13 @@ font-size:15px;
 
 <script>
 
-let followed=false;
+let clicked=false;
 
-function openInstagram(e){
+document
+.getElementById("followBtn")
+.addEventListener("click",function(){
 
-e.preventDefault();
-
-window.location.href=
-"instagram://user?username=icane_academy";
-
-setTimeout(function(){
-
-window.open(
-"https://www.instagram.com/icane_academy?igsh=ZXo4NDZrZGtseWZ1&utm_source=ig_contact_invite",
-"_blank"
-);
-
-},1200);
+clicked=true;
 
 const unlockBtn=
 document.getElementById("unlockBtn");
@@ -759,8 +630,6 @@ unlockBtn.innerHTML=
 "⏳ FOLLOW ШАЛГАЖ БАЙНА...";
 
 setTimeout(()=>{
-
-followed=true;
 
 unlockBtn.disabled=false;
 
@@ -771,21 +640,21 @@ unlockBtn.innerHTML=
 
 },5000);
 
-}
+});
 
 document
 .getElementById("unlockBtn")
 .addEventListener("click",function(){
 
-if(followed){
+if(clicked){
 
 localStorage.setItem(
-"icane_access",
-"granted"
+"icane_unlock",
+"yes"
 );
 
 document
-.getElementById("ultraGate")
+.getElementById("followLock")
 .style.display="none";
 
 }
@@ -796,12 +665,12 @@ window.onload=function(){
 
 if(
 localStorage.getItem(
-"icane_access"
-)==="granted"
+"icane_unlock"
+)==="yes"
 ){
 
 document
-.getElementById("ultraGate")
+.getElementById("followLock")
 .style.display="none";
 
 }
