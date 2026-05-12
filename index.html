@@ -1,163 +1,268 @@
-<!-- ========================================= -->
-<!-- NEON BACKGROUND + MANY PROMPTS 🔥 -->
-<!-- ENE CODE-IIG </body>-IIN OMNO PASTE HI -->
-<!-- ========================================= -->
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<!-- NEON BACKGROUND -->
+<title>PUUM AI 🔥</title>
 
-<div class="neon-bg">
-
-<div class="neon neon1"></div>
-<div class="neon neon2"></div>
-<div class="neon neon3"></div>
-<div class="grid-bg"></div>
-
-</div>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;900&display=swap" rel="stylesheet">
 
 <style>
 
-/* ================================= */
-/* ULTRA NEON BACKGROUND */
-/* ================================= */
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+html{
+scroll-behavior:smooth;
+}
 
 body{
-background:#02040a !important;
+font-family:'Poppins',sans-serif;
+background:#03040a;
+color:white;
 overflow-x:hidden;
 }
 
-/* BIG NEON BLOBS */
+/* NEON BACKGROUND */
 
-.neon-bg{
+body::before{
+content:'';
 position:fixed;
 inset:0;
-z-index:-999;
-overflow:hidden;
+background:
+radial-gradient(circle at top left,#00ffee33,transparent 30%),
+radial-gradient(circle at bottom right,#ff00cc22,transparent 30%),
+radial-gradient(circle at center,#0066ff22,transparent 40%);
+z-index:-2;
+animation:bgmove 10s infinite alternate;
 }
 
-.neon{
-position:absolute;
-border-radius:50%;
-filter:blur(140px);
-opacity:0.35;
-animation:moveBlob 18s infinite alternate;
+@keyframes bgmove{
+from{
+transform:translateY(0px);
 }
-
-.neon1{
-width:550px;
-height:550px;
-background:#00ffee;
-top:-150px;
-left:-120px;
+to{
+transform:translateY(-40px);
 }
-
-.neon2{
-width:500px;
-height:500px;
-background:#0066ff;
-bottom:-120px;
-right:-120px;
-animation-delay:4s;
-}
-
-.neon3{
-width:420px;
-height:420px;
-background:#ff00cc;
-top:40%;
-left:40%;
-animation-delay:8s;
-}
-
-@keyframes moveBlob{
-
-0%{
-transform:translate(0,0) scale(1);
-}
-
-100%{
-transform:translate(120px,80px) scale(1.15);
-}
-
 }
 
 /* GRID */
 
-.grid-bg{
-position:absolute;
+.grid{
+position:fixed;
 inset:0;
 background-image:
-linear-gradient(
-rgba(255,255,255,0.03) 1px,
-transparent 1px
-),
-linear-gradient(
-90deg,
-rgba(255,255,255,0.03) 1px,
-transparent 1px
-);
+linear-gradient(rgba(255,255,255,0.03) 1px,transparent 1px),
+linear-gradient(90deg,rgba(255,255,255,0.03) 1px,transparent 1px);
 background-size:45px 45px;
-mask-image:
-linear-gradient(
-to bottom,
-transparent,
-black 20%,
-black 80%,
-transparent
-);
+z-index:-1;
 }
 
-/* SECTION TITLE */
+/* NAVBAR */
 
-.section-title{
-font-size:80px !important;
+.navbar{
+position:sticky;
+top:0;
+z-index:999;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px 40px;
+background:#050816cc;
+backdrop-filter:blur(15px);
+border-bottom:1px solid #ffffff10;
+}
+
+.logo{
+font-size:34px;
 font-weight:900;
-background:
-linear-gradient(
-90deg,
-#00ffee,
-#00aaff,
-#ff00cc
-);
+background:linear-gradient(90deg,#00ffee,#00aaff,#ff00cc);
 -webkit-background-clip:text;
 -webkit-text-fill-color:transparent;
-text-shadow:
-0 0 30px #00ffee44;
 }
 
-/* CARD */
+.nav-links{
+display:flex;
+gap:25px;
+}
+
+.nav-links a{
+color:white;
+text-decoration:none;
+transition:0.3s;
+font-size:15px;
+}
+
+.nav-links a:hover{
+color:#00ffee;
+}
+
+/* HERO */
+
+.hero{
+min-height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:30px;
+}
+
+.hero-content{
+max-width:1000px;
+}
+
+.hero-badge{
+display:inline-block;
+padding:12px 20px;
+border-radius:999px;
+background:#00ffee22;
+border:1px solid #00ffee55;
+margin-bottom:30px;
+font-size:13px;
+letter-spacing:2px;
+}
+
+.hero h1{
+font-size:120px;
+line-height:0.9;
+margin-bottom:25px;
+font-weight:900;
+text-shadow:
+0 0 20px #00ffee66,
+0 0 60px #ff00cc33;
+}
+
+.hero p{
+font-size:22px;
+line-height:1.8;
+color:#cfcfcf;
+margin-bottom:40px;
+}
+
+.hero-buttons{
+display:flex;
+justify-content:center;
+gap:20px;
+flex-wrap:wrap;
+}
+
+.hero-buttons button{
+padding:20px 38px;
+border:none;
+border-radius:20px;
+font-size:17px;
+font-weight:700;
+cursor:pointer;
+transition:0.4s;
+}
+
+.main-btn{
+background:linear-gradient(90deg,#00ffee,#00aaff);
+color:black;
+box-shadow:0 0 35px #00ffee55;
+}
+
+.second-btn{
+background:#0d1117;
+color:white;
+border:1px solid #ffffff10;
+}
+
+.hero-buttons button:hover{
+transform:translateY(-5px) scale(1.03);
+}
+
+/* STATS */
+
+.stats{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+gap:25px;
+padding:70px 25px;
+max-width:1400px;
+margin:auto;
+}
+
+.stat-box{
+background:#0b1018cc;
+padding:35px;
+border-radius:25px;
+text-align:center;
+border:1px solid #ffffff10;
+transition:0.4s;
+}
+
+.stat-box:hover{
+transform:translateY(-10px);
+box-shadow:0 0 40px #00ffee22;
+}
+
+.stat-box h2{
+font-size:55px;
+margin-bottom:10px;
+color:#00ffee;
+}
+
+/* SECTION */
+
+.section-title{
+font-size:70px;
+text-align:center;
+margin-bottom:60px;
+background:linear-gradient(90deg,#00ffee,#ff00cc);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+/* PROMPTS */
+
+.prompts{
+padding:80px 25px;
+}
+
+.prompt-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(340px,1fr));
+gap:35px;
+max-width:1600px;
+margin:auto;
+}
 
 .prompt-card{
-background:
-rgba(10,15,25,0.72) !important;
-
-backdrop-filter:blur(20px);
-
-border:1px solid rgba(255,255,255,0.08);
-
-box-shadow:
-0 0 35px rgba(0,255,255,0.08);
+background:#0b1018cc;
+backdrop-filter:blur(15px);
+border-radius:28px;
+padding:22px;
+border:1px solid #ffffff10;
+transition:0.5s;
+overflow:hidden;
+position:relative;
 }
 
 .prompt-card:hover{
-
-transform:
-translateY(-12px)
-scale(1.02);
-
+transform:translateY(-10px);
 box-shadow:
-0 0 55px #00ffee33,
-0 0 100px #ff00cc22;
-
+0 0 40px #00ffee22,
+0 0 70px #ff00cc11;
 }
-
-/* IMAGE */
 
 .prompt-card img{
-height:270px;
+width:100%;
+height:260px;
 object-fit:cover;
+border-radius:22px;
+margin-bottom:20px;
+transition:0.5s;
 }
 
-/* TEXT */
+.prompt-card:hover img{
+transform:scale(1.05);
+}
 
 .prompt-card h3{
 font-size:32px;
@@ -166,67 +271,205 @@ color:#00ffee;
 }
 
 .prompt-text{
-font-size:15px;
 line-height:1.9;
-color:#e6e6e6;
+font-size:15px;
+color:#d8d8d8;
+white-space:pre-line;
+margin-bottom:25px;
 }
 
-/* BUTTON */
-
 .prompt-card button{
-
-background:
-linear-gradient(
-90deg,
-#00ffee,
-#00aaff
-) !important;
-
-color:black !important;
-
+width:100%;
+padding:18px;
+border:none;
+border-radius:18px;
+background:linear-gradient(90deg,#00ffee,#00aaff);
+font-size:16px;
 font-weight:800;
-
+cursor:pointer;
+transition:0.4s;
 }
 
 .prompt-card button:hover{
-
-transform:scale(1.04);
-
-box-shadow:
-0 0 35px #00ffee66;
-
+transform:scale(1.03);
+box-shadow:0 0 30px #00ffee66;
 }
 
-/* FREE TAG */
-
 .free-tag{
-
-background:
-linear-gradient(
-90deg,
-#00ff99,
-#00ffee
-);
-
+position:absolute;
+top:18px;
+right:18px;
+padding:10px 18px;
+border-radius:999px;
+background:#00ff99;
 color:black;
+font-weight:800;
+}
 
-font-weight:900;
+/* INSTAGRAM */
 
-box-shadow:
-0 0 20px #00ffee66;
+.instagram{
+padding:100px 25px;
+text-align:center;
+}
+
+.instagram-box{
+max-width:900px;
+margin:auto;
+padding:50px;
+border-radius:35px;
+background:#0b1018cc;
+border:1px solid #ffffff10;
+}
+
+.instagram-box h2{
+font-size:55px;
+margin-bottom:20px;
+color:#00ffee;
+}
+
+.instagram-box p{
+font-size:18px;
+color:#cfcfcf;
+margin-bottom:30px;
+line-height:1.8;
+}
+
+.instagram-btn{
+display:inline-block;
+padding:20px 35px;
+border-radius:20px;
+background:linear-gradient(90deg,#ff00cc,#00aaff);
+color:white;
+font-weight:800;
+text-decoration:none;
+font-size:18px;
+transition:0.4s;
+}
+
+.instagram-btn:hover{
+transform:scale(1.05);
+}
+
+/* FOOTER */
+
+footer{
+padding:70px 25px;
+text-align:center;
+color:#777;
+font-size:14px;
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+.hero h1{
+font-size:58px;
+}
+
+.hero p{
+font-size:16px;
+}
+
+.section-title{
+font-size:42px;
+}
+
+.nav-links{
+display:none;
+}
 
 }
 
 </style>
+</head>
 
-<!-- ========================================= -->
-<!-- MANY PROMPTS 🔥 -->
-<!-- ========================================= -->
+<body>
 
-<section class="prompt-section">
+<div class="grid"></div>
+
+<!-- NAVBAR -->
+
+<div class="navbar">
+
+<div class="logo">
+PUUM AI 🔥
+</div>
+
+<div class="nav-links">
+<a href="#">Нүүр</a>
+<a href="#">Prompt</a>
+<a href="#">Trending</a>
+<a href="#">Instagram</a>
+</div>
+
+</div>
+
+<!-- HERO -->
+
+<section class="hero">
+
+<div class="hero-content">
+
+<div class="hero-badge">
+⚡ MONGOLIA AI PROMPT HUB
+</div>
+
+<h1>
+PUUM<br>
+AI
+</h1>
+
+<p>
+
+Anime • Luxury • Cyberpunk • Mirror Selfie • Fashion • Cinematic • Viral TikTok Style
+
+</p>
+
+<div class="hero-buttons">
+
+<button class="main-btn">
+🔥 Prompt Үзэх
+</button>
+
+<button class="second-btn">
+🚀 Explore
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- STATS -->
+
+<section class="stats">
+
+<div class="stat-box">
+<h2>50K+</h2>
+<p>Copy хийсэн Prompt</p>
+</div>
+
+<div class="stat-box">
+<h2>10K+</h2>
+<p>Өдөр тутмын хэрэглэгч</p>
+</div>
+
+<div class="stat-box">
+<h2>500+</h2>
+<p>Premium Style</p>
+</div>
+
+</section>
+
+<!-- PROMPTS -->
+
+<section class="prompts">
 
 <h2 class="section-title">
-🔥 ALL VIRAL PROMPTS
+🔥 Viral Prompt Collection
 </h2>
 
 <div class="prompt-grid">
@@ -245,24 +488,21 @@ FREE
 Mirror Selfie
 </h3>
 
-<div class="prompt-text" id="mega1">
+<div class="prompt-text" id="p1">
 
 A stylish young man taking a mirror selfie indoors,
 messy wavy black hair,
-sharp jawline,
 warm cinematic lighting,
 minimal luxury room,
 35mm lens,
 Instagram aesthetic,
-soft shadows,
-high detail skin texture,
-realistic photography,
+realistic skin texture,
 premium fashion mood,
 8k ultra HD.
 
 </div>
 
-<button onclick="copyPrompt('mega1')">
+<button onclick="copyPrompt('p1')">
 Copy Prompt
 </button>
 
@@ -282,23 +522,22 @@ FREE
 Luxury Editorial
 </h3>
 
-<div class="prompt-text" id="mega2">
+<div class="prompt-text" id="p2">
 
-Luxury fashion editorial portrait,
-dark expensive atmosphere,
+Luxury editorial portrait,
 85mm lens,
+dark expensive atmosphere,
 cinematic shadows,
 premium blazer,
-sharp skin details,
 fashion magazine style,
-soft directional lighting,
-clean expensive aesthetic,
+soft lighting,
 ultra realistic,
+sharp details,
 8k quality.
 
 </div>
 
-<button onclick="copyPrompt('mega2')">
+<button onclick="copyPrompt('p2')">
 Copy Prompt
 </button>
 
@@ -318,21 +557,20 @@ FREE
 Cyberpunk Racing
 </h3>
 
-<div class="prompt-text" id="mega3">
+<div class="prompt-text" id="p3">
 
-Anime style young man standing beside a red sports car,
+Anime style young man beside a red sports car,
 wet Tokyo street,
 blue neon lighting,
 Japanese racing atmosphere,
 cyberpunk reflections,
-street racing vibe,
 dramatic cinematic look,
 ultra realistic,
 8k render.
 
 </div>
 
-<button onclick="copyPrompt('mega3')">
+<button onclick="copyPrompt('p3')">
 Copy Prompt
 </button>
 
@@ -352,23 +590,20 @@ FREE
 Anime Chibi
 </h3>
 
-<div class="prompt-text" id="mega4">
+<div class="prompt-text" id="p4">
 
 Cute anime inspired portrait,
-multiple 3D chibi versions,
+multiple 3D chibi characters,
 pastel lighting,
-dreamy atmosphere,
-Instagram sticker style,
-soft cinematic glow,
 white doodles,
 sparkles,
-cute aesthetic,
+dreamy atmosphere,
 anime + realistic fusion,
 8k ultra HD.
 
 </div>
 
-<button onclick="copyPrompt('mega4')">
+<button onclick="copyPrompt('p4')">
 Copy Prompt
 </button>
 
@@ -388,22 +623,21 @@ FREE
 Money Aura
 </h3>
 
-<div class="prompt-text" id="mega5">
+<div class="prompt-text" id="p5">
 
-Urban young man lying on a table full of dollar bills,
-oversized black hoodie,
-holding a money gun,
-flying cash everywhere,
+Urban young man lying on dollar bills,
+black hoodie,
+money gun,
+flying cash,
 dramatic overhead angle,
-slow motion atmosphere,
-cinematic shadows,
-hyper realistic,
 luxury trap aesthetic,
+hyper realistic,
+cinematic shadows,
 8k detail.
 
 </div>
 
-<button onclick="copyPrompt('mega5')">
+<button onclick="copyPrompt('p5')">
 Copy Prompt
 </button>
 
@@ -423,92 +657,20 @@ FREE
 Dark Fashion
 </h3>
 
-<div class="prompt-text" id="mega6">
+<div class="prompt-text" id="p6">
 
 Futuristic dark fashion editorial,
-oversized black trousers,
-structured blazer,
+oversized black outfit,
 matte black turtleneck,
-minimal void background,
-soft shadows,
-quiet luxury mood,
+minimal background,
+quiet luxury aesthetic,
 high fashion photography,
-ultra realistic,
-editorial lighting.
+editorial lighting,
+ultra realistic.
 
 </div>
 
-<button onclick="copyPrompt('mega6')">
-Copy Prompt
-</button>
-
-</div>
-
-<!-- PROMPT 7 -->
-
-<div class="prompt-card">
-
-<div class="free-tag">
-FREE
-</div>
-
-<img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=1200&auto=format&fit=crop">
-
-<h3>
-Winter Mood
-</h3>
-
-<div class="prompt-text" id="mega7">
-
-Moody winter editorial portrait,
-oversized mint puffer jacket,
-silver jewelry,
-soft cinematic lighting,
-fashion magazine mood,
-cold luxury aesthetic,
-soft knitted outfit,
-dramatic atmosphere,
-realistic photography,
-8k render.
-
-</div>
-
-<button onclick="copyPrompt('mega7')">
-Copy Prompt
-</button>
-
-</div>
-
-<!-- PROMPT 8 -->
-
-<div class="prompt-card">
-
-<div class="free-tag">
-FREE
-</div>
-
-<img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=1200&auto=format&fit=crop">
-
-<h3>
-Red Studio
-</h3>
-
-<div class="prompt-text" id="mega8">
-
-Ultra stylized red fashion portrait,
-monochromatic red environment,
-wide dominant pose,
-high angle camera,
-bold cinematic attitude,
-fashion poster style,
-sharp shadows,
-luxury editorial aesthetic,
-ultra realistic,
-8k ultra HD.
-
-</div>
-
-<button onclick="copyPrompt('mega8')">
+<button onclick="copyPrompt('p6')">
 Copy Prompt
 </button>
 
@@ -517,3 +679,57 @@ Copy Prompt
 </div>
 
 </section>
+
+<!-- INSTAGRAM -->
+
+<section class="instagram">
+
+<div class="instagram-box">
+
+<h2>
+📸 Instagram
+</h2>
+
+<p>
+
+Өөрийн Instagram account-aa энд холбоод хүмүүсийг шууд profile руугаа оруул.
+
+</p>
+
+<a href="https://instagram.com/YOURUSERNAME" target="_blank" class="instagram-btn">
+
+🔥 Instagram Руу Орох
+
+</a>
+
+</div>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+
+PUUM AI 🔥 <br><br>
+
+Монгол AI Creator community-д зориулав.
+
+</footer>
+
+<script>
+
+function copyPrompt(id){
+
+const text =
+document.getElementById(id).innerText;
+
+navigator.clipboard.writeText(text);
+
+alert("🔥 Prompt copy хийгдлээ");
+
+}
+
+</script>
+
+</body>
+</html>
