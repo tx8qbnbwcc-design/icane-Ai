@@ -1,44 +1,84 @@
-<!-- ===================================== -->
-<!-- INSTAGRAM FOLLOW LOCK -->
+<!-- ================================================= -->
+<!-- ULTRA FOLLOW LOCK SYSTEM -->
 <!-- BODY TAG-IIN DARAAN PASTE -->
-<!-- ===================================== -->
+<!-- ================================================= -->
 
-<div id="followGate">
+<div id="ultraFollowLock">
 
-<div class="gate-box">
+<div class="noise"></div>
+<div class="gradient-orb orb1"></div>
+<div class="gradient-orb orb2"></div>
 
-<div class="gate-glow"></div>
+<div class="follow-container">
 
-<h1>🔒 ICANE AI ACCESS</h1>
+<div class="verified-badge">
 
-<p class="gate-text">
+✔ VERIFIED ACCESS
 
-Free Prompt үзэхийн тулд эхлээд Instagram Follow хийх шаардлагатай.
+</div>
+
+<h1>
+
+ICANE AI 🔥
+
+</h1>
+
+<p class="subtitle">
+
+⚡ Premium AI Prompt Library-д нэвтрэхийн тулд Instagram Follow хийх шаардлагатай.
 
 </p>
 
-<a
-href="https://www.instagram.com/icane_academy?igsh=aWVmdTJuYmk4amE3"
-target="_blank"
-class="insta-btn">
+<div class="benefits">
 
-📸 @ICANE_ACADEMY FOLLOW
+<div class="benefit-card">
+
+🔥 Viral Prompt
+
+</div>
+
+<div class="benefit-card">
+
+🚀 Cinematic AI
+
+</div>
+
+<div class="benefit-card">
+
+💎 Premium Quality
+
+</div>
+
+<div class="benefit-card">
+
+⚡ Free Updates
+
+</div>
+
+</div>
+
+<a
+id="followBtn"
+href="https://www.instagram.com/icane_academy?igsh=aWVmdTJuYmk4amE3"
+target="_blank">
+
+📸 FOLLOW @ICANE_ACADEMY
 
 </a>
 
 <button
-class="unlock-btn"
-onclick="unlockPrompts()">
+id="unlockBtn"
+disabled>
 
-⚡ FOLLOW ХИЙСЭН — SITE НЭЭХ
+🔒 FOLLOW ХИЙЖ БАЙГАА...
 
 </button>
 
-<div class="mini-text">
+<div class="loading-line"></div>
 
-🔥 Premium AI Prompt Library  
-🚀 Cinematic / Fashion / Luxury Prompt  
-⚡ Монгол AI Community
+<div class="footer-text">
+
+Монгол AI Creator Community ⚡
 
 </div>
 
@@ -48,7 +88,7 @@ onclick="unlockPrompts()">
 
 <style>
 
-#followGate{
+#ultraFollowLock{
 
 position:fixed;
 
@@ -62,62 +102,90 @@ justify-content:center;
 
 align-items:center;
 
-padding:25px;
-
 overflow:hidden;
 
 background:
-radial-gradient(circle at top,#00ffee22,transparent 40%),
-radial-gradient(circle at bottom,#ff00cc22,transparent 40%),
 linear-gradient(
 135deg,
-#020617,
 #000000,
-#07111f
+#020617,
+#07111f,
+#000000
 );
 
-backdrop-filter:blur(20px);
+font-family:'Poppins',sans-serif;
 
 }
 
-.gate-box{
+/* NOISE */
 
-position:relative;
+.noise{
 
-width:100%;
+position:absolute;
 
-max-width:430px;
+inset:0;
 
-padding:55px 30px;
+opacity:0.05;
 
-border-radius:35px;
+background-image:
+url("https://grainy-gradients.vercel.app/noise.svg");
 
-background:
-rgba(10,15,25,0.92);
-
-border:1px solid #00ffee33;
-
-overflow:hidden;
-
-text-align:center;
-
-box-shadow:
-0 0 80px #00ffee22,
-0 0 140px #ff00cc22;
-
-animation:
-floatBox 4s ease-in-out infinite;
+pointer-events:none;
 
 }
 
-@keyframes floatBox{
+/* ORBS */
+
+.gradient-orb{
+
+position:absolute;
+
+border-radius:50%;
+
+filter:blur(100px);
+
+animation:floatOrb 8s infinite ease-in-out;
+
+}
+
+.orb1{
+
+width:300px;
+
+height:300px;
+
+background:#00ffee55;
+
+top:-100px;
+
+left:-80px;
+
+}
+
+.orb2{
+
+width:350px;
+
+height:350px;
+
+background:#ff00cc44;
+
+bottom:-120px;
+
+right:-100px;
+
+animation-delay:2s;
+
+}
+
+@keyframes floatOrb{
 
 0%{
 transform:translateY(0px);
 }
 
 50%{
-transform:translateY(-12px);
+transform:translateY(-30px);
 }
 
 100%{
@@ -126,29 +194,91 @@ transform:translateY(0px);
 
 }
 
-.gate-glow{
+/* MAIN BOX */
 
-position:absolute;
+.follow-container{
 
-width:300px;
+position:relative;
 
-height:300px;
+width:92%;
 
-background:#00ffee33;
+max-width:460px;
 
-filter:blur(120px);
+padding:50px 30px;
 
-top:-120px;
+border-radius:35px;
 
-right:-100px;
+background:
+rgba(10,15,25,0.92);
+
+border:1px solid #ffffff12;
+
+backdrop-filter:blur(25px);
+
+box-shadow:
+0 0 80px #00ffee22,
+0 0 140px #ff00cc22;
+
+text-align:center;
+
+overflow:hidden;
+
+animation:
+containerFloat 4s infinite ease-in-out;
 
 }
 
-.gate-box h1{
+@keyframes containerFloat{
 
-font-size:42px;
+0%{
+transform:translateY(0px);
+}
+
+50%{
+transform:translateY(-10px);
+}
+
+100%{
+transform:translateY(0px);
+}
+
+}
+
+/* VERIFIED */
+
+.verified-badge{
+
+display:inline-block;
+
+padding:10px 18px;
+
+border-radius:50px;
+
+background:#00ffee22;
+
+border:1px solid #00ffee55;
+
+color:#00ffee;
+
+font-size:13px;
+
+font-weight:700;
+
+margin-bottom:25px;
+
+letter-spacing:1px;
+
+}
+
+/* TITLE */
+
+.follow-container h1{
+
+font-size:52px;
 
 font-weight:900;
+
+line-height:1;
 
 margin-bottom:20px;
 
@@ -164,15 +294,18 @@ linear-gradient(
 
 -webkit-text-fill-color:transparent;
 
-letter-spacing:2px;
+text-shadow:
+0 0 30px #00ffee88;
 
 }
 
-.gate-text{
+/* SUB */
+
+.subtitle{
 
 font-size:17px;
 
-line-height:1.8;
+line-height:1.9;
 
 color:#d1d5db;
 
@@ -180,7 +313,58 @@ margin-bottom:35px;
 
 }
 
-.insta-btn{
+/* BENEFITS */
+
+.benefits{
+
+display:grid;
+
+grid-template-columns:
+repeat(2,1fr);
+
+gap:14px;
+
+margin-bottom:35px;
+
+}
+
+.benefit-card{
+
+padding:16px;
+
+border-radius:18px;
+
+background:
+rgba(255,255,255,0.04);
+
+border:1px solid #ffffff10;
+
+color:white;
+
+font-size:14px;
+
+font-weight:700;
+
+transition:0.4s;
+
+}
+
+.benefit-card:hover{
+
+transform:
+translateY(-5px);
+
+background:
+rgba(0,255,238,0.08);
+
+box-shadow:
+0 0 30px #00ffee22;
+
+}
+
+/* FOLLOW BTN */
+
+#followBtn{
 
 display:flex;
 
@@ -188,19 +372,17 @@ justify-content:center;
 
 align-items:center;
 
-gap:10px;
-
 width:100%;
 
-padding:18px;
+padding:20px;
 
-border-radius:22px;
+border-radius:24px;
 
 text-decoration:none;
 
 font-size:18px;
 
-font-weight:800;
+font-weight:900;
 
 color:white;
 
@@ -214,36 +396,53 @@ linear-gradient(
 #ff8800
 );
 
+box-shadow:
+0 0 60px #ff00cc55;
+
 transition:0.4s;
 
-box-shadow:
-0 0 50px #ff00cc55;
-
 }
 
-.insta-btn:hover{
+#followBtn:hover{
 
 transform:
-scale(1.04);
+scale(1.03);
 
 box-shadow:
-0 0 70px #ff00cc99;
+0 0 90px #ff00ccaa;
 
 }
 
-.unlock-btn{
+/* LOCK BTN */
+
+#unlockBtn{
 
 width:100%;
 
-padding:18px;
+padding:20px;
 
 border:none;
 
-border-radius:22px;
+border-radius:24px;
 
 font-size:18px;
 
 font-weight:900;
+
+background:
+#111827;
+
+color:#6b7280;
+
+cursor:not-allowed;
+
+transition:0.4s;
+
+}
+
+/* ACTIVE */
+
+#unlockBtn.active{
 
 cursor:pointer;
 
@@ -251,38 +450,115 @@ background:
 linear-gradient(
 90deg,
 #00ffee,
-#00ffaa,
-#00ccff
+#00ccff,
+#00ffaa
 );
 
 color:black;
 
-transition:0.4s;
-
 box-shadow:
-0 0 50px #00ffee55;
+0 0 70px #00ffee66;
 
 }
 
-.unlock-btn:hover{
+#unlockBtn.active:hover{
 
 transform:
-scale(1.04);
-
-box-shadow:
-0 0 70px #00ffeeaa;
+scale(1.03);
 
 }
 
-.mini-text{
+/* LOADING */
 
-margin-top:28px;
+.loading-line{
 
-font-size:14px;
+width:100%;
 
-line-height:1.9;
+height:5px;
+
+border-radius:999px;
+
+background:#111827;
+
+overflow:hidden;
+
+margin-top:25px;
+
+position:relative;
+
+}
+
+.loading-line::before{
+
+content:"";
+
+position:absolute;
+
+left:-50%;
+
+width:50%;
+
+height:100%;
+
+background:
+linear-gradient(
+90deg,
+transparent,
+#00ffee,
+transparent
+);
+
+animation:loadingAnim 1.5s infinite linear;
+
+}
+
+@keyframes loadingAnim{
+
+0%{
+left:-50%;
+}
+
+100%{
+left:100%;
+}
+
+}
+
+/* FOOTER */
+
+.footer-text{
+
+margin-top:25px;
+
+font-size:13px;
+
+letter-spacing:1px;
 
 color:#9ca3af;
+
+}
+
+/* MOBILE */
+
+@media(max-width:600px){
+
+.follow-container{
+
+padding:40px 22px;
+
+}
+
+.follow-container h1{
+
+font-size:42px;
+
+}
+
+.subtitle{
+
+font-size:15px;
+
+}
 
 }
 
@@ -290,33 +566,63 @@ color:#9ca3af;
 
 <script>
 
-function unlockPrompts(){
+let followed=false;
+
+document
+.getElementById("followBtn")
+.addEventListener("click",function(){
+
+setTimeout(()=>{
+
+followed=true;
+
+const unlockBtn=
+document.getElementById("unlockBtn");
+
+unlockBtn.disabled=false;
+
+unlockBtn.classList.add("active");
+
+unlockBtn.innerHTML=
+"⚡ SITE НЭЭХ";
+
+},4000);
+
+});
+
+document
+.getElementById("unlockBtn")
+.addEventListener("click",function(){
+
+if(followed){
 
 localStorage.setItem(
-"icane_follow_unlock",
+"icaneUltraUnlock",
 "yes"
 );
 
-document.getElementById(
-"followGate"
-).style.display="none";
+document
+.getElementById("ultraFollowLock")
+.style.display="none";
 
 }
+
+});
 
 window.onload=function(){
 
 if(
 localStorage.getItem(
-"icane_follow_unlock"
+"icaneUltraUnlock"
 )==="yes"
 ){
 
-document.getElementById(
-"followGate"
-).style.display="none";
+document
+.getElementById("ultraFollowLock")
+.style.display="none";
 
 }
 
-}
+};
 
 </script>
