@@ -1,417 +1,716 @@
-<!-- ========================= -->
-<!-- PASTE THIS RIGHT ABOVE </body> -->
-<!-- ========================= -->
+<!-- ========================================= -->
+<!-- GOD TIER PREMIUM UPGRADE -->
+<!-- PASTE ABOVE </body> -->
+<!-- ========================================= -->
 
-<!-- MUSIC -->
-<audio id="bgMusic" autoplay loop>
-  <source src="music.mp3" type="audio/mpeg">
-</audio>
+<!-- VIDEO BACKGROUND -->
 
-<script>
-document.addEventListener("click", () => {
-  document.getElementById("bgMusic").play();
-});
-</script>
+<div class="video-bg">
 
-<!-- PROMPT IMAGE STYLE -->
+<video autoplay muted loop playsinline>
+
+<source src="https://cdn.coverr.co/videos/coverr-black-and-white-clouds-1564846777297?download=1080p" type="video/mp4">
+
+</video>
+
+<div class="video-overlay"></div>
+
+</div>
+
+<!-- LIVE STATUS -->
+
+<div class="live-status">
+
+<div class="live-dot"></div>
+
+<span>
+12,842 users online
+</span>
+
+</div>
+
+<!-- FLOATING NOTIFICATIONS -->
+
+<div class="notify-container" id="notifyContainer"></div>
+
+<!-- ULTRA HERO -->
+
+<section class="ultra-hero">
+
+<div class="hero-glow"></div>
+
+<div class="hero-center">
+
+<div class="hero-mini">
+PREMIUM AI EXPERIENCE
+</div>
+
+<h1 class="ultra-title">
+
+CREATE<br>
+VIRAL AI<br>
+MASTERPIECES
+
+</h1>
+
+<p class="ultra-sub">
+
+Luxury cinematic prompts designed for next generation AI creators.
+
+</p>
+
+<div class="ultra-buttons">
+
+<button>
+Explore Now
+</button>
+
+<button class="ghost-btn">
+View Trending
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- FEATURE STRIP -->
+
+<section class="feature-strip">
+
+<div class="feature-item">
+⚡ Ultra Fast
+</div>
+
+<div class="feature-item">
+🎨 Cinematic Prompts
+</div>
+
+<div class="feature-item">
+🔥 Viral Styles
+</div>
+
+<div class="feature-item">
+💎 Premium UI
+</div>
+
+<div class="feature-item">
+📸 Realistic Outputs
+</div>
+
+</section>
+
+<!-- MEGA GALLERY -->
+
+<section class="mega-gallery">
+
+<h2 class="mega-heading">
+Trending Visual Styles
+</h2>
+
+<div class="gallery-grid">
+
+<div class="gallery-card">
+<img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=1200&auto=format&fit=crop">
+<div class="gallery-overlay">
+<h3>Mirror Selfie</h3>
+</div>
+</div>
+
+<div class="gallery-card">
+<img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=1200&auto=format&fit=crop">
+<div class="gallery-overlay">
+<h3>Dark Studio</h3>
+</div>
+</div>
+
+<div class="gallery-card">
+<img src="https://images.unsplash.com/photo-1504593811423-6dd665756598?q=80&w=1200&auto=format&fit=crop">
+<div class="gallery-overlay">
+<h3>Luxury Fashion</h3>
+</div>
+</div>
+
+<div class="gallery-card">
+<img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=1200&auto=format&fit=crop">
+<div class="gallery-overlay">
+<h3>Editorial</h3>
+</div>
+</div>
+
+</div>
+
+</section>
+
+<!-- DISCORD STYLE SIDEBAR -->
+
+<div class="dock-bar">
+
+<div class="dock-icon">🏠</div>
+<div class="dock-icon">🔥</div>
+<div class="dock-icon">🎨</div>
+<div class="dock-icon">📸</div>
+<div class="dock-icon">⚡</div>
+
+</div>
+
+<!-- FLOATING MUSIC VISUALIZER -->
+
+<div class="music-visualizer">
+
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+
+</div>
+
+<!-- BIG GLOW ORBS -->
+
+<div class="orb orb1"></div>
+<div class="orb orb2"></div>
+<div class="orb orb3"></div>
+
+<!-- ========================================= -->
+<!-- CSS -->
+<!-- ========================================= -->
+
 <style>
 
-.prompt-image{
-width:100%;
-height:420px;
-object-fit:cover;
-border-radius:28px;
-margin-bottom:22px;
-border:1px solid rgba(255,255,255,0.08);
-box-shadow:
-0 0 30px rgba(0,255,200,0.12),
-0 0 80px rgba(0,255,200,0.04);
-transition:0.5s;
+/* VIDEO */
+
+.video-bg{
+position:fixed;
+inset:0;
+z-index:-10;
+overflow:hidden;
 }
 
-.prompt-image:hover{
-transform:scale(1.02);
-box-shadow:
-0 0 40px rgba(0,255,200,0.25),
-0 0 120px rgba(0,255,200,0.08);
+.video-bg video{
+width:100%;
+height:100%;
+object-fit:cover;
+opacity:0.18;
+}
+
+.video-overlay{
+position:absolute;
+inset:0;
+background:
+linear-gradient(
+to bottom,
+#000000dd,
+#02060add
+);
+}
+
+/* LIVE */
+
+.live-status{
+position:fixed;
+top:20px;
+right:20px;
+padding:14px 22px;
+background:#081018dd;
+backdrop-filter:blur(20px);
+border-radius:999px;
+display:flex;
+align-items:center;
+gap:12px;
+z-index:99999;
+border:1px solid #00ffcc22;
+}
+
+.live-dot{
+width:10px;
+height:10px;
+background:#00ff66;
+border-radius:50%;
+animation:livePulse 1s infinite;
+}
+
+@keyframes livePulse{
+0%{
+transform:scale(1);
+opacity:1;
+}
+50%{
+transform:scale(1.5);
+opacity:0.4;
+}
+100%{
+transform:scale(1);
+opacity:1;
+}
+}
+
+/* HERO */
+
+.ultra-hero{
+min-height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+padding:30px;
+position:relative;
+overflow:hidden;
+}
+
+.hero-center{
+max-width:1100px;
+position:relative;
+z-index:5;
+}
+
+.hero-mini{
+display:inline-block;
+padding:12px 20px;
+border-radius:999px;
+background:#00ffcc22;
+border:1px solid #00ffcc44;
+margin-bottom:30px;
+font-size:14px;
+letter-spacing:2px;
+}
+
+.ultra-title{
+font-size:130px;
+line-height:0.9;
+font-weight:900;
+margin-bottom:30px;
+text-shadow:
+0 0 30px #00ffcc44,
+0 0 80px #00ffee22;
+animation:titleFloat 6s ease-in-out infinite;
+}
+
+@keyframes titleFloat{
+0%{
+transform:translateY(0px);
+}
+50%{
+transform:translateY(-15px);
+}
+100%{
+transform:translateY(0px);
+}
+}
+
+.ultra-sub{
+font-size:24px;
+max-width:800px;
+margin:auto;
+color:#aaa;
+line-height:1.8;
+margin-bottom:45px;
+}
+
+.ultra-buttons{
+display:flex;
+justify-content:center;
+gap:20px;
+flex-wrap:wrap;
+}
+
+.ultra-buttons button{
+padding:22px 40px;
+font-size:18px;
+border-radius:22px;
+}
+
+.ghost-btn{
+background:transparent !important;
+color:#00ffcc !important;
+border:1px solid #00ffcc55 !important;
+}
+
+/* FEATURE */
+
+.feature-strip{
+display:flex;
+gap:20px;
+overflow:auto;
+padding:30px;
+margin-bottom:60px;
+}
+
+.feature-item{
+min-width:250px;
+padding:24px;
+background:#081018;
+border-radius:24px;
+text-align:center;
+font-weight:700;
+border:1px solid #00ffcc22;
+transition:0.4s;
+}
+
+.feature-item:hover{
+transform:translateY(-8px);
+box-shadow:0 0 30px #00ffcc33;
+}
+
+/* GALLERY */
+
+.mega-gallery{
+padding:100px 25px;
+}
+
+.mega-heading{
+font-size:80px;
+text-align:center;
+margin-bottom:70px;
+}
+
+.gallery-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+gap:35px;
+}
+
+.gallery-card{
+position:relative;
+height:500px;
+overflow:hidden;
+border-radius:32px;
+}
+
+.gallery-card img{
+width:100%;
+height:100%;
+object-fit:cover;
+transition:0.7s;
+}
+
+.gallery-card:hover img{
+transform:scale(1.12);
+}
+
+.gallery-overlay{
+position:absolute;
+inset:0;
+background:
+linear-gradient(
+to top,
+#000000dd,
+transparent
+);
+display:flex;
+align-items:flex-end;
+padding:30px;
+}
+
+.gallery-overlay h3{
+font-size:42px;
+}
+
+/* DOCK */
+
+.dock-bar{
+position:fixed;
+left:20px;
+top:50%;
+transform:translateY(-50%);
+display:flex;
+flex-direction:column;
+gap:20px;
+z-index:99999;
+}
+
+.dock-icon{
+width:70px;
+height:70px;
+background:#081018dd;
+backdrop-filter:blur(20px);
+border-radius:22px;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:28px;
+cursor:pointer;
+transition:0.4s;
+border:1px solid #00ffcc22;
+}
+
+.dock-icon:hover{
+transform:scale(1.1);
+background:#00ffcc;
+}
+
+/* VISUALIZER */
+
+.music-visualizer{
+position:fixed;
+bottom:20px;
+right:20px;
+display:flex;
+gap:6px;
+z-index:99999;
+}
+
+.music-visualizer div{
+width:8px;
+height:40px;
+background:#00ffcc;
+border-radius:999px;
+animation:music 1s infinite ease-in-out;
+}
+
+.music-visualizer div:nth-child(2){
+animation-delay:0.2s;
+}
+
+.music-visualizer div:nth-child(3){
+animation-delay:0.4s;
+}
+
+.music-visualizer div:nth-child(4){
+animation-delay:0.6s;
+}
+
+.music-visualizer div:nth-child(5){
+animation-delay:0.8s;
+}
+
+@keyframes music{
+0%{
+height:20px;
+}
+50%{
+height:60px;
+}
+100%{
+height:20px;
+}
+}
+
+/* ORBS */
+
+.orb{
+position:fixed;
+border-radius:50%;
+filter:blur(120px);
+opacity:0.2;
+z-index:-3;
+animation:orbMove 15s infinite alternate;
+}
+
+.orb1{
+width:500px;
+height:500px;
+background:#00ffcc;
+top:-200px;
+left:-100px;
+}
+
+.orb2{
+width:450px;
+height:450px;
+background:#0044ff;
+bottom:-150px;
+right:-100px;
+}
+
+.orb3{
+width:350px;
+height:350px;
+background:#00ffee;
+top:40%;
+left:50%;
+}
+
+@keyframes orbMove{
+from{
+transform:translate(0,0);
+}
+to{
+transform:translate(80px,60px);
+}
+}
+
+/* NOTIFY */
+
+.notify-container{
+position:fixed;
+top:100px;
+right:20px;
+z-index:999999;
+display:flex;
+flex-direction:column;
+gap:15px;
+}
+
+.notify{
+background:#081018dd;
+padding:18px 24px;
+border-radius:20px;
+border:1px solid #00ffcc33;
+backdrop-filter:blur(20px);
+animation:notifySlide 0.5s ease;
+}
+
+@keyframes notifySlide{
+from{
+opacity:0;
+transform:translateX(100px);
+}
+to{
+opacity:1;
+transform:translateX(0px);
+}
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+.ultra-title{
+font-size:58px;
+}
+
+.ultra-sub{
+font-size:16px;
+}
+
+.mega-heading{
+font-size:42px;
+}
+
+.gallery-card{
+height:320px;
+}
+
+.dock-bar{
+display:none;
+}
+
+.live-status{
+top:15px;
+right:15px;
+font-size:12px;
+}
+
 }
 
 </style>
 
-<!-- ========================= -->
-<!-- PROMPT 1 -->
-<!-- ========================= -->
-
-<div class="prompt-card">
-
-<img class="prompt-image"
-src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=1400&auto=format&fit=crop">
-
-<div class="badge">Anime</div>
-
-<div class="card-number">01</div>
-
-<h2>Anime Chibi Portrait</h2>
-
-<div class="prompt-text" id="prompt1">
-Use a real face as reference photo while keeping 100% of the original facial identity and hairstyle.
-
-Create a dreamy anime-inspired aesthetic portrait with soft cinematic lighting and pastel sunset sky background.
-
-The main character stands confidently in the center wearing a stylish oversized white puffer vest, black outfit, and scarf.
-
-Around the character, add multiple cute 3D chibi versions of the same person in different poses:
-- jumping happily
-- sitting relaxed
-- holding a drink
-- smiling shyly
-- making peace sign
-- cute sleepy expression
-
-Style:
-ultra detailed,
-anime + realistic fusion,
-8k quality,
-dreamy atmosphere.
-</div>
-
-<button onclick="copyPrompt('prompt1')">
-Copy Prompt
-</button>
-
-<div class="line"></div>
-
-</div>
-
-<!-- ========================= -->
-<!-- PROMPT 2 -->
-<!-- ========================= -->
-
-<div class="prompt-card">
-
-<img class="prompt-image"
-src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?q=80&w=1400&auto=format&fit=crop">
-
-<div class="badge">Tokyo</div>
-
-<div class="card-number">02</div>
-
-<h2>Tokyo Street Racing</h2>
-
-<div class="prompt-text" id="prompt2">
-Photorealistic anime-style young man standing beside a red sports car at night.
-
-Neon blue lighting,
-Japanese street racing atmosphere,
-wet Tokyo street,
-cinematic reflections,
-cyberpunk vibe,
-ultra realistic,
-8k quality.
-</div>
-
-<button onclick="copyPrompt('prompt2')">
-Copy Prompt
-</button>
-
-<div class="line"></div>
-
-</div>
-
-<!-- ========================= -->
-<!-- PROMPT 3 -->
-<!-- ========================= -->
-
-<div class="prompt-card">
-
-<img class="prompt-image"
-src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=1400&auto=format&fit=crop">
-
-<div class="badge">Money</div>
-
-<div class="card-number">03</div>
-
-<h2>Money Gun Scene</h2>
-
-<div class="prompt-text" id="prompt3">
-Create a realistic HD photo of an urban-looking man lying casually on a table full of dollar bills, wearing an oversized black hoodie.
-
-In his hand, he holds a money gun pointed upward at the camera while dollar bills fly dramatically through the air in slow motion.
-
-Beside him, several people sit counting stacks of money.
-
-Shot from above with cinematic perspective,
-hyper realistic,
-8k quality,
-dramatic movie lighting,
-ultra detailed atmosphere.
-</div>
-
-<button onclick="copyPrompt('prompt3')">
-Copy Prompt
-</button>
-
-<div class="line"></div>
-
-</div>
-
-<!-- ========================= -->
-<!-- PROMPT 4 -->
-<!-- ========================= -->
-
-<div class="prompt-card">
-
-<img class="prompt-image"
-src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=1200&auto=format&fit=crop">
-
-<div class="badge">Luxury</div>
-
-<div class="card-number">04</div>
-
-<h2>Luxury Black Fashion</h2>
-
-<div class="prompt-text" id="prompt4">
-Craft a hyperrealistic futuristic fashion editorial featuring a solitary male figure seated confidently in a dark minimalist void.
-
-The subject wears oversized black trousers with rich fabric texture and a structured black blazer layered over a matte-black turtleneck.
-
-Powerful cinematic shadows,
-fashion magazine aesthetic,
-editorial photography,
-sharp details,
-8k realism.
-</div>
-
-<button onclick="copyPrompt('prompt4')">
-Copy Prompt
-</button>
-
-<div class="line"></div>
-
-</div>
-
-<!-- ========================= -->
-<!-- PROMPT 5 -->
-<!-- ========================= -->
-
-<div class="prompt-card">
-
-<img class="prompt-image"
-src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?q=80&w=1400&auto=format&fit=crop">
-
-<div class="badge">Winter</div>
-
-<div class="card-number">05</div>
-
-<h2>Winter Editorial</h2>
-
-<div class="prompt-text" id="prompt5">
-Craft a moody cinematic winter editorial portrait.
-
-The subject wears oversized mint-green winterwear layered with textured knit clothing and creamy wide-leg pants.
-
-Soft moody lighting,
-fashion magazine composition,
-cold cinematic atmosphere,
-ultra realistic skin texture,
-8k quality.
-</div>
-
-<button onclick="copyPrompt('prompt5')">
-Copy Prompt
-</button>
-
-<div class="line"></div>
-
-</div>
-
-<!-- ========================= -->
-<!-- PROMPT 6 -->
-<!-- ========================= -->
-
-<div class="prompt-card">
-
-<img class="prompt-image"
-src="https://images.unsplash.com/photo-1521572267360-ee0c2909d518?q=80&w=1400&auto=format&fit=crop">
-
-<div class="badge">Studio</div>
-
-<div class="card-number">06</div>
-
-<h2>Icy Streetwear</h2>
-
-<div class="prompt-text" id="prompt6">
-Stage a hyperrealistic studio-lit fashion portrait.
-
-The subject squats confidently while wearing a silver-white oversized puffer jacket layered over off-white cargo pants and textured sweatshirt.
-
-Luxury urban style,
-high-fashion lighting,
-cinematic atmosphere,
-8k editorial realism.
-</div>
-
-<button onclick="copyPrompt('prompt6')">
-Copy Prompt
-</button>
-
-<div class="line"></div>
-
-</div>
-
-<!-- ========================= -->
-<!-- PROMPT 7 -->
-<!-- ========================= -->
-
-<div class="prompt-card">
-
-<img class="prompt-image"
-src="https://images.unsplash.com/photo-1504593811423-6dd665756598?q=80&w=1400&auto=format&fit=crop">
-
-<div class="badge">Street</div>
-
-<div class="card-number">07</div>
-
-<h2>Sherpa Hoodie Portrait</h2>
-
-<div class="prompt-text" id="prompt7">
-Create a bold overhead fashion portrait.
-
-The subject squats beneath a dramatic studio spotlight wearing a cream sherpa hoodie with the hood pulled tightly over the head.
-
-Soft shadows,
-streetwear attitude,
-fashion editorial aesthetic,
-high realism,
-8k cinematic quality.
-</div>
-
-<button onclick="copyPrompt('prompt7')">
-Copy Prompt
-</button>
-
-<div class="line"></div>
-
-</div>
-
-<!-- ========================= -->
-<!-- PROMPT 8 -->
-<!-- ========================= -->
-
-<div class="prompt-card">
-
-<img class="prompt-image"
-src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=1400&auto=format&fit=crop">
-
-<div class="badge">Red</div>
-
-<div class="card-number">08</div>
-
-<h2>Red Fashion Scene</h2>
-
-<div class="prompt-text" id="prompt8">
-Capture an ultra-stylized fashion portrait in a monochromatic red environment.
-
-The subject stands in a dominant pose while dramatic red lighting surrounds the scene.
-
-High-angle cinematic shot,
-luxury editorial vibe,
-deep shadows,
-hyper realistic fashion photography,
-8k quality.
-</div>
-
-<button onclick="copyPrompt('prompt8')">
-Copy Prompt
-</button>
-
-<div class="line"></div>
-
-</div>
-
-<!-- ========================= -->
-<!-- PROMPT 9 -->
-<!-- ========================= -->
-
-<div class="prompt-card">
-
-<img class="prompt-image"
-src="https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=1400&auto=format&fit=crop">
-
-<div class="badge">Royal</div>
-
-<div class="card-number">09</div>
-
-<h2>Retro Luxury Throne</h2>
-
-<div class="prompt-text" id="prompt9">
-Design a cinematic fashion portrait featuring a confident young man seated on a royal baroque throne chair.
-
-Retro luxury atmosphere,
-dark cinematic lighting,
-fashion magazine look,
-rich textures,
-ultra realistic photography,
-8k resolution.
-</div>
-
-<button onclick="copyPrompt('prompt9')">
-Copy Prompt
-</button>
-
-<div class="line"></div>
-
-</div>
-
-<!-- ========================= -->
-<!-- PROMPT 10 -->
-<!-- ========================= -->
-
-<div class="prompt-card">
-
-<img class="prompt-image"
-src="https://images.unsplash.com/photo-1503023345310-bd7c1de61c7d?q=80&w=1400&auto=format&fit=crop">
-
-<div class="badge">Dark</div>
-
-<div class="card-number">10</div>
-
-<h2>Dark Stair Portrait</h2>
-
-<div class="prompt-text" id="prompt10">
-A cinematic portrait of a young man standing in a dimly lit stairwell looking directly at the camera.
-
-Dark red shadows,
-moody atmosphere,
-street photography feel,
-soft grain,
-dramatic lighting,
-ultra realistic,
-8k cinematic portrait.
-</div>
-
-<button onclick="copyPrompt('prompt10')">
-Copy Prompt
-</button>
-
-<div class="line"></div>
-
-</div>
-
-<!-- ========================= -->
-<!-- COPY FUNCTION -->
-<!-- ========================= -->
+<!-- ========================================= -->
+<!-- JS -->
+<!-- ========================================= -->
 
 <script>
 
-function copyPrompt(id){
+/* FAKE NOTIFICATIONS */
 
-const text =
-document.getElementById(id).innerText;
+const notifications = [
 
-navigator.clipboard.writeText(text);
+"🔥 Someone copied Luxury Prompt",
+"⚡ New cinematic prompts added",
+"🎨 Trending anime style updated",
+"📸 Viral selfie prompts unlocked",
+"💎 Premium collection available"
 
-alert("Prompt copied!");
+];
+
+setInterval(()=>{
+
+let notify =
+document.createElement("div");
+
+notify.classList.add("notify");
+
+notify.innerText =
+notifications[
+Math.floor(
+Math.random()*notifications.length
+)
+];
+
+document
+.getElementById("notifyContainer")
+.appendChild(notify);
+
+setTimeout(()=>{
+
+notify.remove();
+
+},4000);
+
+},3500);
+
+/* PARALLAX */
+
+window.addEventListener("mousemove",e=>{
+
+document.querySelectorAll(".orb")
+.forEach((orb,index)=>{
+
+let speed = (index + 1) * 0.01;
+
+orb.style.transform =
+`translate(
+${e.clientX * speed}px,
+${e.clientY * speed}px
+)`;
+
+});
+
+});
+
+/* SMOOTH REVEAL */
+
+const ultraReveal =
+new IntersectionObserver(entries=>{
+
+entries.forEach(entry=>{
+
+if(entry.isIntersecting){
+
+entry.target.style.opacity="1";
+entry.target.style.transform=
+"translateY(0px)";
+
+}
+
+});
+
+});
+
+document.querySelectorAll(
+".gallery-card,.feature-item"
+).forEach(el=>{
+
+el.style.opacity="0";
+el.style.transform=
+"translateY(80px)";
+el.style.transition="1s";
+
+ultraReveal.observe(el);
+
+});
+
+/* FLOATING PARTICLES */
+
+for(let i=0;i<80;i++){
+
+let particle =
+document.createElement("div");
+
+particle.style.position="fixed";
+particle.style.width="3px";
+particle.style.height="3px";
+particle.style.background="#00ffcc";
+particle.style.borderRadius="50%";
+particle.style.left=Math.random()*100+"vw";
+particle.style.top=Math.random()*100+"vh";
+particle.style.opacity=Math.random();
+particle.style.boxShadow="0 0 12px #00ffcc";
+particle.style.zIndex="-2";
+
+document.body.appendChild(particle);
 
 }
 
